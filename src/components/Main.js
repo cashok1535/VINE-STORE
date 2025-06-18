@@ -9,6 +9,7 @@ import { RedWhiteVines } from "./RedWhiteVines";
 import { History } from "./History";
 import { RedWhiteVineDiscound } from "./RedWhitevineDIscound";
 import { Awards } from "./Awards";
+import { Feedback } from "./Feedback";
 
 export const Main = () => {
   return (
@@ -31,6 +32,7 @@ export const Main = () => {
       <History />
       <div className="main__brown">
         <RedWhiteVineDiscound />
+        <Feedback />
         <Awards />
       </div>
     </main>
