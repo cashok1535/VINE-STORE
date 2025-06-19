@@ -1,4 +1,41 @@
+import { useEffect, useRef, useState } from "react";
+
+const testimonials = [
+  {
+    id: 1,
+    text: "“I really like to please myself with good wine with a rich taste.Therefore, from time to time, I order wine directly from the CaliWines winery. I also buy Chardonnay and Cabernet for familyholidays. We are completely delighted with the amazing taste ofthese wines, which we want to enjoy endlessly.”",
+  },
+  {
+    id: 2,
+    text: "“We were to hold a responsible event with a buffet table and wanted to surprise our guests with some local products. I recalled that we have the CaliWines winery in California and ordered 10 bottles of Chardonnay. Our guests were delighted and asked for the name of the producer!”",
+  },
+  {
+    id: 3,
+    text: "“Our restaurant has been cooperating with this winery for over 10 years. We order the whole range of wines from them. We are completely satisfied with the quality of the wine supplied to us. And our guests often choose CaliWines from our wine menu.”",
+  },
+];
+
 export const Feedback = () => {
+  const [countSlider, setCountSlider] = useState(0);
+  const [widthSlide, setWidthSlide] = useState();
+  const sliderElementRef = useRef(null);
+
+  const handleNext = () => {
+    setCountSlider((prev) => {
+      if (prev < 2) return prev + 1;
+      else return prev;
+    });
+  };
+  const handlePrev = () => {
+    setCountSlider((prev) => {
+      if (prev > 0) return prev - 1;
+      else return prev;
+    });
+  };
+
+  useEffect(() => {
+    setWidthSlide(sliderElementRef.current.offsetWidth);
+  }, []);
   return (
     <div className="feedback">
       <div className="boutique__wines__italic">Testimonials</div>
@@ -52,6 +89,103 @@ export const Feedback = () => {
       </svg>
       <div className="personal__discound__text">
         Wine is a bottled poetry. Read some stories from our customers below.
+      </div>
+      <div className="feedback__slider__parrent">
+        <button className="arrow left" onClick={handlePrev}>
+          <svg
+            fill="#9c522d"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="30px"
+            height="30px"
+            viewBox="0 0 284.929 284.929"
+            style={{ enableBackground: "new 0 0 284.929 284.929" }}
+          >
+            <g>
+              <path
+                d="M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441
+		L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082
+		c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647
+		c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z"
+              />
+            </g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+        </button>
+        <div className="feedback__slider__overflow">
+          <div
+            ref={sliderElementRef}
+            className="feedback__slider"
+            style={{
+              transform: "translate(-" + countSlider * widthSlide + "px)",
+            }}
+          >
+            {testimonials.map((el) => (
+              <div
+                key={el.id}
+                ref={sliderElementRef}
+                className="feedback__slider__element"
+              >
+                {el.text}
+              </div>
+            ))}
+          </div>
+        </div>
+        <button className="arrow right" onClick={handleNext}>
+          <svg
+            fill="#9c522d"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            x="0px"
+            y="0px"
+            width="30px"
+            height="30px"
+            viewBox="0 0 284.929 284.929"
+            style={{ enableBackground: "new 0 0 284.929 284.929" }}
+          >
+            <g>
+              <path
+                d="M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441
+		L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082
+		c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647
+		c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z"
+              />
+            </g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+            <g></g>
+          </svg>
+        </button>
       </div>
     </div>
   );

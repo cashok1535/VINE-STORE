@@ -32,8 +32,8 @@ export const Main = () => {
       <History />
       <div className="main__brown">
         <RedWhiteVineDiscound />
-        <Feedback />
         <Awards />
+        <Feedback />
       </div>
     </main>
   );
