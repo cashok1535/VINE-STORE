@@ -1394,6 +1394,13 @@ a:hover {
   width: 100%;
 }
 
+.slide__number__feedback__parrent{
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
 @media (max-width: 992px) {
   .boutique__wines__flex__left {
     display: none;

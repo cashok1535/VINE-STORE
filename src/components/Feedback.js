@@ -156,6 +156,8 @@ export const Feedback = () => {
                 {el.text}
               </div>
             ))}
+          </div>
+          <div className="slide__number__feedback__parrent">
             {Array.from(Array(slideCount).keys()).map((index) => (
               <button
                 className={`slide_number ${
