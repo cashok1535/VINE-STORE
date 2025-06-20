@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const testimonials = [
   {
@@ -18,7 +18,13 @@ const testimonials = [
 export const Feedback = () => {
   const [countSlider, setCountSlider] = useState(0);
   const [widthSlide, setWidthSlide] = useState();
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [slideCount, setSlideCount] = useState();
   const sliderElementRef = useRef(null);
+
+  useMemo(() => {
+    setSlideCount(testimonials.length);
+  }, []);
 
   const handleNext = () => {
     setCountSlider((prev) => {
@@ -32,6 +38,10 @@ export const Feedback = () => {
       else return prev;
     });
   };
+
+  useEffect(() => {
+    setActiveSlide(countSlider);
+  }, [countSlider]);
 
   useEffect(() => {
     setWidthSlide(sliderElementRef.current.offsetWidth);
@@ -145,6 +155,14 @@ export const Feedback = () => {
               >
                 {el.text}
               </div>
+            ))}
+            {Array.from(Array(slideCount).keys()).map((index) => (
+              <button
+                className={`slide_number ${
+                  activeSlide === index ? "active" : "inActive"
+                }`}
+                key={index}
+              ></button>
             ))}
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { VineSliderElement } from "./VineSliderElement";
 import { Buy } from "./BuyModal";
 import { vines } from "./BuyModal";
@@ -7,10 +7,14 @@ export const VineSlider = () => {
   const [numberSlide, setNumberSlide] = useState(0);
   const [isTransition, setIsTransition] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
+  const [slideCount, setSlideCount]= useState()
   const slideRef = useRef(null);
   const sliderRef = useRef(null);
-  const slideCount = Math.ceil(vines.length / 3) + 1;
   const { handleOrder, isPhone } = Buy();
+
+  useMemo(() => {
+    setSlideCount(Math.ceil(vines.length / 3) + 1);
+  }, []);
 
   useEffect(() => {
     numberSlide === 4 ? setActiveSlide(0) : setActiveSlide(numberSlide);
@@ -204,4 +208,3 @@ export const VineSlider = () => {
     </>
   );
 };
-
