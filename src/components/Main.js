@@ -10,6 +10,7 @@ import { History } from "./History";
 import { RedWhiteVineDiscound } from "./RedWhitevineDIscound";
 import { Awards } from "./Awards";
 import { Feedback } from "./Feedback";
+import { Blog } from "./Blog";
 
 export const Main = () => {
   return (
@@ -34,6 +35,7 @@ export const Main = () => {
         <RedWhiteVineDiscound />
         <Awards />
         <Feedback />
+        <Blog />
       </div>
     </main>
   );
