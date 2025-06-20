@@ -76,7 +76,7 @@ export const VineOrderModal = () => {
     if (isPromoRight) {
       setIsPromoTextRight(true);
       setIsActivePromo(true);
-      handleDiscount(isPromoRight, isActivePromo); ////////////////
+      handleDiscount(isPromoRight, isActivePromo); 
       setPromoText("");
       setPromoInput(false);
     } else {
@@ -86,7 +86,6 @@ export const VineOrderModal = () => {
   };
 
   const isName = () => {
-    //////////////////////////
     const hasErrorNameInput =
       orderFormInfo.name.length === 0 || orderFormInfo.name.charAt(0) === " ";
     setFormError((prev) => ({
@@ -96,7 +95,6 @@ export const VineOrderModal = () => {
   };
 
   const isEmail = () => {
-    //////////////////////////////
     const isEmail = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(orderFormInfo.email);
     setFormError((prev) => ({
       ...prev,
@@ -105,7 +103,6 @@ export const VineOrderModal = () => {
   };
 
   const isPhone = () => {
-    ////////////////////////////////
     const isNumbers =
       /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(
         orderFormInfo.phone
@@ -118,7 +115,6 @@ export const VineOrderModal = () => {
   };
 
   const onChangeInput = (nameInput, event) => {
-    ///////////////////////////////////////
     setOrderFormInfo((prev) => ({
       ...prev,
       [nameInput]: event.target.value,
@@ -126,7 +122,6 @@ export const VineOrderModal = () => {
   };
 
   const formSubmit = (event) => {
-    //////////////////////////////////
     event.preventDefault();
     isName();
     isEmail();

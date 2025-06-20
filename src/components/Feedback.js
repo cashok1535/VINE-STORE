@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const testimonials = [
   {
@@ -22,7 +22,7 @@ export const Feedback = () => {
   const [slideCount, setSlideCount] = useState();
   const sliderElementRef = useRef(null);
 
-  useMemo(() => {
+  useEffect(() => {
     setSlideCount(testimonials.length);
   }, []);
 

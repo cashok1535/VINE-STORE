@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { VineSliderElement } from "./VineSliderElement";
 import { Buy } from "./BuyModal";
 import { vines } from "./BuyModal";
@@ -12,7 +12,7 @@ export const VineSlider = () => {
   const sliderRef = useRef(null);
   const { handleOrder, isPhone } = Buy();
 
-  useMemo(() => {
+  useEffect(() => {
     setSlideCount(Math.ceil(vines.length / 3) + 1);
   }, []);
 
