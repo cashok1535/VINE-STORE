@@ -1,59 +1,47 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import blogFlexFirst from "../img/blogFlexFirst.png";
+import blogFlexSecond from "../img/blogFlexSecond.png";
+import blogFlexThird from "../img/blogFlexThird.png";
 
-const testimonials = [
+const blogs = [
   {
     id: 1,
-    text: "“I really like to please myself with good wine with a rich taste.Therefore, from time to time, I order wine directly from the CaliWines winery. I also buy Chardonnay and Cabernet for familyholidays. We are completely delighted with the amazing taste ofthese wines, which we want to enjoy endlessly.”",
+    img: blogFlexFirst,
+    data: "5 Feb 2022",
+    title: "How Is Wine Rated?",
+    text: "Awards are the most important aspect for wines. If experts rate a particular wine highly, then it indicates that the production technology has been fully followed, and it is a really high-quality product. The award-winning wine is highly regarded by consumers as well. Therefore, producers regularly exhibit their wines at various competitions. The higher the status of the event, the tougher the competition, and, consequently, the more prestigious the award. The assessment is carried out by independent experts. During the assessment, the specialist evaluates the color of the product, its aroma, and structure. The last stage of the assessment is the assessment of taste. For each aspect, the wine receives a certain grade. The maximum score in the United States is 100 points.",
   },
   {
     id: 2,
-    text: "“We were to hold a responsible event with a buffet table and wanted to surprise our guests with some local products. I recalled that we have the CaliWines winery in California and ordered 10 bottles of Chardonnay. Our guests were delighted and asked for the name of the producer!”",
+    img: blogFlexSecond,
+    data: "1 Feb 2022",
+    title: "How Is Wine Rated?",
+    text: "The most important thing in wine production is the quality of the grapes. Without this, it is impossible to make good wine. Therefore, there are a number of requirements for growing grapes to meet the requirements for winemaking. Vintage wine cannot be made from grapes without prior selection, low-quality berries can ruin the whole taste. Special grape varieties are used for winemaking. They can be either red or white, depending on what kind of wine they plan to make from it. The grapes must be fully ripe, and they must be cut off strictly at a certain time so that they do not overripe. Not all berries are suitable for making wine. For vintage wines, not only bunches are selected but also each berry. The berry should be large and fleshy. It must not be damaged in any way. Unripe or overripe berries are unacceptable.",
   },
   {
     id: 3,
-    text: "“Our restaurant has been cooperating with this winery for over 10 years. We order the whole range of wines from them. We are completely satisfied with the quality of the wine supplied to us. And our guests often choose CaliWines from our wine menu.”",
+    img: blogFlexThird,
+    data: "26 Jan 2022",
+    title: "How Is Wine Rated?",
+    text: "Drinking wine is a whole art. However, to not spoil the taste, you need to select snacks carefully. It should be noted that different dishes are suitable for red and white wine. With dry red wine, everything is relatively simple. First of all, meat dishes are suitable - poultry, veal, etc. Mediterranean cuisine is also a good choice. For red semi-sweet wines, poultry (for example, chicken or turkey) is better. Fatty fish or shrimps with sauce are also good options. Sweet wines are best served with fruit, nuts, or sweets. Sturgeons will work as well. As for white wine, seafood and fish are good options for dry varieties. Semi-sweet wine is best served with various types of cheese or low-fat sausages. Floury desserts are also a good choice. White sweet wine is ideal for desserts. For example, eclairs or some types of cakes suit well.",
   },
 ];
 
-export const Feedback = () => {
-  const [countSlider, setCountSlider] = useState(0);
-  const [widthSlide, setWidthSlide] = useState();
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [slideCount, setSlideCount] = useState();
-  const sliderElementRef = useRef(null);
+export const Blog = () => {
+  const [blogTextAbbreviated, setBlogTextAbbreviated] = useState([]);
 
   useEffect(() => {
-    setSlideCount(testimonials.length);
+    setBlogTextAbbreviated(
+      blogs.map((el) => {
+        return { ...el, text: el.text.slice(0, 129) + "..." };
+      })
+    );
   }, []);
 
-  const handleNext = () => {
-    setCountSlider((prev) => {
-      if (prev < 2) return prev + 1;
-      else return prev;
-    });
-  };
-  const handlePrev = () => {
-    setCountSlider((prev) => {
-      if (prev > 0) return prev - 1;
-      else return prev;
-    });
-  };
-
-  const handleSlide = (id) => {
-    setCountSlider(id);
-  };
-
-  useEffect(() => {
-    setActiveSlide(countSlider);
-  }, [countSlider]);
-
-  useEffect(() => {
-    setWidthSlide(sliderElementRef.current.offsetWidth);
-  }, []);
   return (
-    <div className="feedback">
-      <div className="boutique__wines__italic">Testimonials</div>
-      <div className="personal__discound__title">What Our Wine-Lovers Say</div>
+    <div className="blog">
+      <div className="boutique__wines__italic">Blog</div>
+      <div className="personal__discound__title">World of Wines</div>
       <svg
         className="awards__svg"
         width="166"
@@ -102,117 +90,20 @@ export const Feedback = () => {
         />
       </svg>
       <div className="personal__discound__text">
-        Wine is a bottled poetry. Read some stories from our customers below.
+        Read our articles if you want to know more about wine production and
+        selection.
       </div>
-      <div className="feedback__slider__parrent">
-        <button className="arrow left" onClick={handlePrev}>
-          <svg
-            fill="#9c522d"
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="30px"
-            height="30px"
-            viewBox="0 0 284.929 284.929"
-            style={{ enableBackground: "new 0 0 284.929 284.929" }}
-          >
-            <g>
-              <path
-                d="M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441
-		L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082
-		c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647
-		c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z"
-              />
-            </g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-          </svg>
-        </button>
-        <div className="feedback__slider__overflow">
-          <div
-            ref={sliderElementRef}
-            className="feedback__slider"
-            style={{
-              transform: "translate(-" + countSlider * widthSlide + "px)",
-            }}
-          >
-            {testimonials.map((el) => (
-              <div
-                key={el.id}
-                ref={sliderElementRef}
-                className="feedback__slider__element"
-              >
-                {el.text}
-              </div>
-            ))}
+      <div className="blog__flex">
+        {blogTextAbbreviated.map((el) => (
+          <div key={el.id} className="blog__flex__element">
+            <div className="blog__flex__element__img">
+              <img src={el.img} alt="" />
+            </div>
+            <div className="blog__flex__element__date">{el.data}</div>
+            <div className="blog__flex__element__title">{el.title}</div>
+            <div className="blog__flex__element__text">{el.text}</div>
           </div>
-          <div className="slide__number__feedback__parrent">
-            {Array.from(Array(slideCount).keys()).map((index) => (
-              <button
-                onClick={() => {
-                  handleSlide(index);
-                }}
-                className={`slide__number__feedback ${
-                  activeSlide === index ? "active" : "inActive"
-                }`}
-                key={index}
-              ></button>
-            ))}
-          </div>
-        </div>
-        <button className="arrow right" onClick={handleNext}>
-          <svg
-            fill="#9c522d"
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            x="0px"
-            y="0px"
-            width="30px"
-            height="30px"
-            viewBox="0 0 284.929 284.929"
-            style={{ enableBackground: "new 0 0 284.929 284.929" }}
-          >
-            <g>
-              <path
-                d="M282.082,76.511l-14.274-14.273c-1.902-1.906-4.093-2.856-6.57-2.856c-2.471,0-4.661,0.95-6.563,2.856L142.466,174.441
-		L30.262,62.241c-1.903-1.906-4.093-2.856-6.567-2.856c-2.475,0-4.665,0.95-6.567,2.856L2.856,76.515C0.95,78.417,0,80.607,0,83.082
-		c0,2.473,0.953,4.663,2.856,6.565l133.043,133.046c1.902,1.903,4.093,2.854,6.567,2.854s4.661-0.951,6.562-2.854L282.082,89.647
-		c1.902-1.903,2.847-4.093,2.847-6.565C284.929,80.607,283.984,78.417,282.082,76.511z"
-              />
-            </g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-          </svg>
-        </button>
+        ))}
       </div>
     </div>
   );
