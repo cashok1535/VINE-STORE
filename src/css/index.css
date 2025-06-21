@@ -1465,6 +1465,22 @@ a:hover {
   overflow: hidden;
 }
 
+.faq{
+  padding: 50px 0;
+}
+
+.faq__flex{
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.faq__flex__element__background{
+  background: url(../img/redVineFAQ.png) no-repeat #261e1c;
+  width: 100%;
+}
+
 @media (max-width: 992px) {
   .boutique__wines__flex__left {
     display: none;

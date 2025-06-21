@@ -11,6 +11,7 @@ import { RedWhiteVineDiscound } from "./RedWhitevineDIscound";
 import { Awards } from "./Awards";
 import { Feedback } from "./Feedback";
 import { Blog } from "./Blog";
+import { FAQ } from "./FAQ";
 
 export const Main = () => {
   return (
@@ -36,6 +37,7 @@ export const Main = () => {
         <Awards />
         <Feedback />
         <Blog />
+        <FAQ />
       </div>
     </main>
   );
