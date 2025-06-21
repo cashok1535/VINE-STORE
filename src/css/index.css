@@ -17,8 +17,6 @@ a:hover {
   text-decoration: underline;
 }
 
-
-
 .header {
   background: rgba(0, 0, 0, 0.5);
   font-family: "Rubik_Medium", sans-serif;
@@ -59,7 +57,7 @@ a:hover {
 }
 
 .header__navbar__element a {
-  transition: color .05s;
+  transition: color 0.05s;
 }
 
 .header__navbar__element a:hover {
@@ -75,10 +73,10 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all .2s ease-out;
+  transition: all 0.2s ease-out;
 }
 
-.href__social:hover>svg {
+.href__social:hover > svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -108,7 +106,6 @@ a:hover {
   width: 100%;
   height: 1057px;
   z-index: -1;
-
 }
 
 .header__sticky::after {
@@ -157,7 +154,6 @@ a:hover {
   margin: 30px auto;
   justify-content: space-between;
 }
-
 
 .header__navbar__phone {
   flex-direction: column;
@@ -225,7 +221,7 @@ a:hover {
   border-color: transparent;
   font-family: "Rubik_SemiBold", sans-serif;
   font-size: 16.5px;
-  transition: background, .2s;
+  transition: background, 0.2s;
 }
 
 .buy_button a {
@@ -247,7 +243,7 @@ a:hover {
   height: 52.05px;
   font-family: "Rubik_SemiBold", sans-serif;
   font-size: 16.5px;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .learn__button a {
@@ -262,8 +258,7 @@ a:hover {
   color: #000;
 }
 
-
-.learn__button:hover>a {
+.learn__button:hover > a {
   color: #000 !important;
 }
 
@@ -300,13 +295,12 @@ a:hover {
 }
 
 .first {
-  background: url('../img/MainFlex.jpeg') no-repeat;
+  background: url("../img/MainFlex.jpeg") no-repeat;
   background-size: cover;
-
 }
 
 .second {
-  background: url('../img/MainFlex1.jpeg');
+  background: url("../img/MainFlex1.jpeg");
   background-size: cover;
   background-position: -32px 0px;
 }
@@ -387,7 +381,7 @@ a:hover {
   text-align: center;
   line-height: 1.2;
   margin-top: 20px;
-  letter-spacing: calc(-0.02*1em);
+  letter-spacing: calc(-0.02 * 1em);
 }
 
 .learn__more__vine__grape {
@@ -435,7 +429,7 @@ a:hover {
 
 .learn__more__vine__flex__text {
   font-size: 16px;
-  font-family: 'Rubik_Regular', sans-serif;
+  font-family: "Rubik_Regular", sans-serif;
   color: #898082;
   width: 100%;
   max-width: 310px;
@@ -487,7 +481,6 @@ a:hover {
   gap: 20px;
 }
 
-
 .discover__stiky__parrent {
   position: absolute;
   top: 1700px;
@@ -512,7 +505,7 @@ a:hover {
 .bestDeals__slider {
   position: relative;
   display: flex;
-  transition: left .5s ease-out;
+  transition: left 0.5s ease-out;
 }
 
 .bestDeals__slider.noTransition {
@@ -550,7 +543,7 @@ a:hover {
   border: none;
   cursor: pointer;
   fill: #ffffff7e;
-  transition: all .2s;
+  transition: all 0.2s;
   margin: 0 auto;
 }
 
@@ -595,7 +588,7 @@ a:hover {
   background: #c8693a;
   border: none;
   margin-top: 24px;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .vine__button:hover {
@@ -634,7 +627,6 @@ a:hover {
   justify-content: center;
   align-items: center;
 }
-
 
 .count__order {
   background: #c8693a;
@@ -715,7 +707,6 @@ a:hover {
   max-width: 520px;
 }
 
-
 .order__products {
   margin-bottom: 7px;
   box-sizing: border-box;
@@ -757,7 +748,7 @@ a:hover {
   max-width: 75px;
   padding: 8px 12px;
   border: 1px solid #c5cbd6;
-  box-shadow: inset 0 1px 0 rgba(35, 33, 54, .08);
+  box-shadow: inset 0 1px 0 rgba(35, 33, 54, 0.08);
   border-radius: 2px;
   box-sizing: border-box;
   position: absolute;
@@ -803,7 +794,6 @@ a:hover {
   color: #261e1c;
 }
 
-
 .promo {
   margin-top: 6px;
   display: flex;
@@ -837,7 +827,6 @@ a:hover {
 .promo__input.isRight {
   border-color: #c5cbd6;
 }
-
 
 .promo__button {
   padding: 0 16px;
@@ -912,7 +901,6 @@ a:hover {
   padding: 50px 0 120px 0;
 }
 
-
 .history__vine__img__parrent {
   margin: 0 auto;
   max-width: 1170px;
@@ -975,7 +963,6 @@ a:hover {
   align-items: center;
   gap: 60px;
 }
-
 
 .vine__tipes__element {
   width: 570px;
@@ -1174,11 +1161,15 @@ a:hover {
 }
 
 .red__vine {
-  background: url(../img/orderVineRed.jpeg) 21.99% 49.72% / cover no-repeat, rgb(38, 30, 28);
+  background:
+    url(../img/orderVineRed.jpeg) 21.99% 49.72% / cover no-repeat,
+    rgb(38, 30, 28);
 }
 
 .white__vine {
-  background: url(../img/orderVineWhite.jpeg) 14.46% 51.16% / cover no-repeat, rgb(38, 30, 28);
+  background:
+    url(../img/orderVineWhite.jpeg) 14.46% 51.16% / cover no-repeat,
+    rgb(38, 30, 28);
 }
 
 .order__vine__title {
@@ -1233,7 +1224,9 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url(../img/personDiscount.png) right center / contain no-repeat, rgb(200, 105, 58);
+  background:
+    url(../img/personDiscount.png) right center / contain no-repeat,
+    rgb(200, 105, 58);
 }
 
 .personal__discound__background::after {
@@ -1285,7 +1278,7 @@ a:hover {
 
 .svg__path {
   fill: #fff;
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .personal__discound__button:hover .personal__discound__button__svg path {
@@ -1361,7 +1354,7 @@ a:hover {
   display: flex;
   position: relative;
   left: calc(50% - 410px);
-  transition: all .5s;
+  transition: all 0.5s;
   transform: translate(0px);
 }
 
@@ -1382,7 +1375,7 @@ a:hover {
 
 .feedback__slider__element {
   color: #898082;
-  font-family: 'Rubik_Regular', sans-serif;
+  font-family: "Rubik_Regular", sans-serif;
   font-size: 17px;
   padding: 0 15px;
   min-width: 100%;
@@ -1394,7 +1387,7 @@ a:hover {
   width: 100%;
 }
 
-.slide__number__feedback__parrent{
+.slide__number__feedback__parrent {
   display: flex;
   gap: 15px;
   justify-content: center;
@@ -1442,7 +1435,7 @@ a:hover {
   margin-top: 20px;
   box-sizing: border-box;
   text-align: left;
-  font-family: 'Rubik_Regular', sans-serif;
+  font-family: "Rubik_Regular", sans-serif;
   font-size: 16px;
   line-height: 1.3;
   letter-spacing: 0.3px;
@@ -1450,13 +1443,13 @@ a:hover {
 
 .blog__flex__element__title {
   margin-top: 20px;
-  font-family: 'Prata', sans-serif;
+  font-family: "Prata", sans-serif;
   font-size: 22px;
 }
 
 .blog__flex__element__date {
   margin-top: 20px;
-  font-family: 'Rubik_Regular', sans-serif;
+  font-family: "Rubik_Regular", sans-serif;
   font-size: 14px;
 }
 
@@ -1465,22 +1458,21 @@ a:hover {
   overflow: hidden;
 }
 
-.faq{
+.faq {
   padding: 50px 0;
 }
 
-.faq__flex{
+.faq__flex {
   display: flex;
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.faq__flex__element__background{
+.faq__flex__element__background {
   background: url(../img/redVineFAQ.png) no-repeat #261e1c;
   width: 100%;
 }
-
 @media (max-width: 992px) {
   .boutique__wines__flex__left {
     display: none;
@@ -1699,7 +1691,8 @@ a:hover {
     width: min-content;
   }
 
-  .history__info, .vine__tipes__element {
+  .history__info,
+  .vine__tipes__element {
     padding: 0 24px;
   }
 

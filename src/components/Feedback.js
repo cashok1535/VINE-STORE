@@ -39,10 +39,6 @@ export const Feedback = () => {
     });
   };
 
-  const handleSlide = (id) => {
-    setCountSlider(id);
-  };
-
   useEffect(() => {
     setActiveSlide(countSlider);
   }, [countSlider]);
@@ -164,10 +160,7 @@ export const Feedback = () => {
           <div className="slide__number__feedback__parrent">
             {Array.from(Array(slideCount).keys()).map((index) => (
               <button
-                onClick={() => {
-                  handleSlide(index);
-                }}
-                className={`slide__number__feedback ${
+                className={`slide_number ${
                   activeSlide === index ? "active" : "inActive"
                 }`}
                 key={index}
