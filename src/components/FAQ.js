@@ -52,6 +52,43 @@ export const FAQ = () => {
               mask="url(#path-3-outside-1)"
             />
           </svg>
+          <div className="questions__flex">
+            <div className="questions__flex__element">
+              <div>
+                <button className="questions__flex__element__button"></button>
+                <div className="questions__flex__element__sign"></div>
+              </div>
+              <div className="questions__flex__element__text"></div>
+            </div>
+            <div className="questions__flex__element">
+              <div>
+                <button className="questions__flex__element__button"></button>
+                <div className="questions__flex__element__sign"></div>
+              </div>
+              <div className="questions__flex__element__text"></div>
+            </div>
+            <div className="questions__flex__element">
+              <div>
+                <button className="questions__flex__element__button"></button>
+                <div className="questions__flex__element__sign"></div>
+              </div>
+              <div className="questions__flex__element__text"></div>
+            </div>
+            <div className="questions__flex__element">
+              <div>
+                <button className="questions__flex__element__button"></button>
+                <div className="questions__flex__element__sign"></div>
+              </div>
+              <div className="questions__flex__element__text"></div>
+            </div>
+            <div className="questions__flex__element">
+              <div>
+                <button className="questions__flex__element__button"></button>
+                <div className="questions__flex__element__sign"></div>
+              </div>
+              <div className="questions__flex__element__text"></div>
+            </div>
+          </div>
         </div>
         <div className="faq__flex__element__background"></div>
       </div>
