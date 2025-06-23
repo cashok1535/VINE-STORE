@@ -1541,7 +1541,7 @@ a:hover {
   background: url(../img/redVineFAQ.png) no-repeat #261e1c;
   background-size: contain;
   max-width: 470px;
-  width: 470px;
+  width: 100%;
   height: 687.98px;
   padding: 0 15px;
   box-sizing: border-box;
@@ -1593,6 +1593,9 @@ a:hover {
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  overflow: hidden;
 }
 
 .questions__flex__element__text {
@@ -1886,6 +1889,18 @@ a:hover {
 
   .feedback__slider {
     left: 0;
+  }
+  .blog__flex {
+    flex-direction: column;
+  }
+
+  .faq__flex {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .questions__flex__element {
+    height: 106px;
   }
 }
 
