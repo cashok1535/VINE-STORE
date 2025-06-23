@@ -1,4 +1,29 @@
+import { useState } from "react";
+
 export const FAQ = () => {
+  const [activeQuestion, setActiveQuestion] = useState("");
+
+  const handleActiveQuestion = (idQuestion) => {
+    switch (idQuestion) {
+      case 1:
+        setActiveQuestion((prev) => (prev === "one" ? "" : "one"));
+        break;
+      case 2:
+        setActiveQuestion((prev) => (prev === "two" ? "" : "two"));
+        break;
+      case 3:
+        setActiveQuestion((prev) => (prev === "three" ? "" : "three"));
+        break;
+      case 4:
+        setActiveQuestion((prev) => (prev === "four" ? "" : "four"));
+        break;
+      case 5:
+        setActiveQuestion((prev) => (prev === "five" ? "" : "five"));
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <div className="faq">
       <div className="faq__flex">
@@ -53,40 +78,145 @@ export const FAQ = () => {
             />
           </svg>
           <div className="questions__flex">
-            <div className="questions__flex__element">
+            <div
+              className={`questions__flex__element ${
+                activeQuestion === "one" ? "active" : ""
+              }`}
+            >
               <div>
-                <button className="questions__flex__element__button"></button>
-                <div className="questions__flex__element__sign"></div>
+                <button
+                  onClick={() => {
+                    handleActiveQuestion(1);
+                  }}
+                  className="questions__flex__element__button"
+                >
+                  Are you a wholesale wine supplier?
+                  <div
+                    className={`questions__flex__element__sign ${
+                      activeQuestion === "one" ? "active" : ""
+                    }`}
+                  >
+                    <svg
+                      className="questions__flex__element__sign__svg"
+                      style={{ enableBackground: "new 0 0 512 512" }}
+                      version="1.1"
+                      viewBox="0 0 512 512"
+                      xmlSpace="preserve"
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                    >
+                      <path
+                        style={{ fill: "#fff" }}
+                        d="M381,236H276V131c0-11-9-20-20-20s-20,9-20,20v105H131c-11,0-20,9-20,20s9,20,20,20h105v105c0,11,9,20,20,20s20-9,20-20V276h105c11,0,20-9,20-20S392,236,381,236z"
+                      />
+                    </svg>
+                  </div>
+                </button>
               </div>
-              <div className="questions__flex__element__text"></div>
+              <div className="questions__flex__element__text">
+                Our winery produces craft wine. Bulk orders are possible, but
+                lots cannot be large.
+              </div>
             </div>
-            <div className="questions__flex__element">
+            <div
+              className={`questions__flex__element ${
+                activeQuestion === "two" ? "active" : ""
+              }`}
+            >
               <div>
-                <button className="questions__flex__element__button"></button>
-                <div className="questions__flex__element__sign"></div>
+                <button
+                  onClick={() => {
+                    handleActiveQuestion(2);
+                  }}
+                  className="questions__flex__element__button"
+                >
+                  Do you ship wine within the USA?
+                  <div
+                    className={`questions__flex__element__sign ${
+                      activeQuestion === "two" ? "active" : ""
+                    }`}
+                  ></div>
+                </button>
               </div>
-              <div className="questions__flex__element__text"></div>
+              <div className="questions__flex__element__text">
+                Yes, we ship your orders to any state and city in the United
+                States, as well as abroad.
+              </div>
             </div>
-            <div className="questions__flex__element">
+            <div
+              className={`questions__flex__element ${
+                activeQuestion === "three" ? "active" : ""
+              }`}
+            >
               <div>
-                <button className="questions__flex__element__button"></button>
-                <div className="questions__flex__element__sign"></div>
+                <button
+                  onClick={() => {
+                    handleActiveQuestion(3);
+                  }}
+                  className="questions__flex__element__button"
+                >
+                  How many varieties are there in your winery?
+                  <div
+                    className={`questions__flex__element__sign ${
+                      activeQuestion === "three" ? "active" : ""
+                    }`}
+                  ></div>
+                </button>
               </div>
-              <div className="questions__flex__element__text"></div>
+              <div className="questions__flex__element__text">
+                Our winery offers wine-lovers more than 10 different varieties
+                of wines with different aging periods.
+              </div>
             </div>
-            <div className="questions__flex__element">
+            <div
+              className={`questions__flex__element ${
+                activeQuestion === "four" ? "active" : ""
+              }`}
+            >
               <div>
-                <button className="questions__flex__element__button"></button>
-                <div className="questions__flex__element__sign"></div>
+                <button
+                  onClick={() => {
+                    handleActiveQuestion(4);
+                  }}
+                  className="questions__flex__element__button"
+                >
+                  Do you advise on the choice of wine?
+                  <div
+                    className={`questions__flex__element__sign ${
+                      activeQuestion === "four" ? "active" : ""
+                    }`}
+                  ></div>
+                </button>
               </div>
-              <div className="questions__flex__element__text"></div>
+              <div className="questions__flex__element__text">
+                Yes. Our winery experts will tell you more about the varieties
+                and help you choose the best option for you.
+              </div>
             </div>
-            <div className="questions__flex__element">
+            <div
+              className={`questions__flex__element ${
+                activeQuestion === "five" ? "active" : ""
+              }`}
+            >
               <div>
-                <button className="questions__flex__element__button"></button>
-                <div className="questions__flex__element__sign"></div>
+                <button
+                  onClick={() => {
+                    handleActiveQuestion(5);
+                  }}
+                  className="questions__flex__element__button"
+                >
+                  Where are your vineyards located?
+                  <div
+                    className={`questions__flex__element__sign ${
+                      activeQuestion === "five" ? "active" : ""
+                    }`}
+                  ></div>
+                </button>
               </div>
-              <div className="questions__flex__element__text"></div>
+              <div className="questions__flex__element__text">
+                We are located in the Napa Valley, America's most famous wine
+                region.
+              </div>
             </div>
           </div>
         </div>

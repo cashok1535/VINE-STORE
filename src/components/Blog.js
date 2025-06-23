@@ -33,7 +33,7 @@ export const Blog = () => {
   useEffect(() => {
     setBlogTextAbbreviated(
       blogs.map((el) => {
-        return { ...el, text: el.text.slice(0, 129) + "..." };
+        return { ...el, text: el.text.slice(0, 130) + "..." };
       })
     );
   }, []);

@@ -76,7 +76,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover > svg {
+.href__social:hover>svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -258,7 +258,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover > a {
+.learn__button:hover>a {
   color: #000 !important;
 }
 
@@ -1525,6 +1525,7 @@ a:hover {
 .faq {
   padding: 50px 0;
   color: #fff;
+  margin: 0 auto;
 }
 
 .faq__flex {
@@ -1532,12 +1533,81 @@ a:hover {
   justify-content: center;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: center;
+}
+
+.faq__flex__element {
+  padding: 0 15px;
 }
 
 .faq__flex__element__background {
   background: url(../img/redVineFAQ.png) no-repeat #261e1c;
+  background-size: contain;
+  max-width: 470px;
+  width: 470px;
+  height: 687.98px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: relative;
+  top: 0;
+}
+
+.questions__flex__element {
+  padding: 20px 0;
+  border-bottom: 1px solid #8a8a8a7e;
+  height: 73px;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: all .3s;
+  max-width: 670px;
   width: 100%;
 }
+
+.questions__flex__element.active {
+  height: 119px;
+}
+
+.questions__flex__element__button {
+  background: transparent;
+  cursor: pointer;
+  border: #000;
+  outline: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: 'Prata', sans-serif;
+  font-size: 22px;
+  text-align: left;
+}
+
+.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
+  background-color: #fff;
+}
+
+.questions__flex__element__sign {
+  position: relative;
+  height: 15px;
+  width: 15px;
+  transition: all .5s;
+  margin-left: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.questions__flex__element__sign__svg path {
+}
+
+
+.questions__flex__element__text {
+  margin-top: 20px;
+  color: #898082;
+  font-family: "Rubik_Regular", sans-serif;
+  font-size: 16px;
+}
+
 @media (max-width: 992px) {
   .boutique__wines__flex__left {
     display: none;
