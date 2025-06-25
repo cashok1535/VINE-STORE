@@ -1,6 +1,6 @@
 export const VinesTipes = () => {
   return (
-    <div className="vine__tipes">
+    <div id="aboutUs" className="vine__tipes">
       <div className="vine__tipes__element empty"></div>
       <div className="vine__tipes__element">
         <div className="learn__more__vine__italicTitle">Timeless classic</div>

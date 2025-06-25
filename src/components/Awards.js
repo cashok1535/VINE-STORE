@@ -5,7 +5,7 @@ import WineFInds from "../img/WineFInds.svg";
 
 export const Awards = () => {
   return (
-    <div className="awards">
+    <div id="awards" className="awards">
       <div className="boutique__wines__italic">Awards</div>
       <div className="personal__discound__title">Our Wines Are Our Pride</div>
       <svg

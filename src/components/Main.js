@@ -12,6 +12,8 @@ import { Awards } from "./Awards";
 import { Feedback } from "./Feedback";
 import { Blog } from "./Blog";
 import { FAQ } from "./FAQ";
+import { WhatWeDo } from "./WhatWeDo";
+import { Contact } from "./Contact";
 
 export const Main = () => {
   return (
@@ -38,7 +40,9 @@ export const Main = () => {
         <Feedback />
         <Blog />
         <FAQ />
+        <WhatWeDo />
       </div>
+      <Contact />
     </main>
   );
 };

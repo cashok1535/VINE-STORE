@@ -76,7 +76,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover > svg {
+.href__social:hover>svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -258,7 +258,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover > a {
+.learn__button:hover>a {
   color: #000 !important;
 }
 
@@ -300,15 +300,13 @@ a:hover {
 }
 
 .second {
-  background: url("../img/MainFlex1.jpeg");
+  background: url("../img/MainFlex1.jpeg") no-repeat;
   background-size: cover;
-  background-position: -32px 0px;
 }
 
 .third {
-  background: url("../img/MainFlex2.jpeg");
+  background: url("../img/MainFlex2.jpeg") no-repeat;
   background-size: cover;
-  background-position: -32px 0px;
 }
 
 .main__flex__element::before {
@@ -553,10 +551,6 @@ a:hover {
 
 .left {
   transform: rotate(90deg);
-}
-
-.arrow:hover {
-  fill: #fff;
 }
 
 .vine__name {
@@ -882,6 +876,7 @@ a:hover {
 
 .order__person__comment {
   padding-bottom: 80px;
+  position: relative;
 }
 
 .order__person__comment::placeholder {
@@ -1038,7 +1033,8 @@ a:hover {
 }
 
 .red__white__vines__flex__element__img {
-  width: 270px;
+  max-width: 382px;
+  width: 100%;
   height: auto;
 }
 
@@ -1294,7 +1290,7 @@ a:hover {
 
 .awards__grid {
   display: grid;
-  grid-template: 1fr 1fr 1fr / 200px 200px 200px 600px;
+  grid-template: 1fr 1fr 1fr / 200px 200px 200px 1fr;
   max-width: 1200px;
   margin: 0 auto;
   margin-top: 50px;
@@ -1311,6 +1307,8 @@ a:hover {
   color: #898082;
   line-height: 1.6;
   padding: 0 15px;
+  max-width: 100%;
+  text-wrap: wrap;
 }
 
 .awards__grid__data {
@@ -1551,9 +1549,9 @@ a:hover {
 
 .questions__flex__element {
   padding: 20px 0;
+  box-sizing: border-box;
   border-bottom: 1px solid #8a8a8a7e;
   height: 73px;
-  box-sizing: border-box;
   overflow: hidden;
   transition: all 0.3s;
   max-width: 670px;
@@ -1579,8 +1577,7 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover
-  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1611,6 +1608,7 @@ a:hover {
   height: 2px;
   background-color: #fff;
 }
+
 .questions__flex__element__sign::before {
   content: "";
   width: 2px;
@@ -1622,6 +1620,92 @@ a:hover {
 .questions__flex__element__sign.active {
   height: 2px;
   top: 5.5px;
+}
+
+.what__we__do {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 50px 0 120px;
+}
+
+.what__we__do__flex__img {
+  height: 70px;
+  width: 70px;
+  border-radius: 50px;
+  background: #342e2e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.what__we__do__flex {
+  width: 270px;
+  box-sizing: border-box;
+}
+
+.what__we__do__flex__title {
+  font-family: "Prata", sans-serif;
+  color: #fff;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.what__we__do__flex__line {
+  width: 32px;
+  height: 2px;
+  background: #c8693a;
+  margin: 15px 0;
+}
+
+.contact {
+  padding-top: 110px;
+  background-color: #1b1613;
+
+}
+
+.contact__flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.contact__info__title {
+  font-family: "Prata", serif;
+  font-size: 32px;
+  margin-top: 20px;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 370px;
+}
+
+.contact__form__input {
+  padding: 16px 25px;
+  width: 100%;
+  box-sizing: border-box;
+  background: #4949493D;
+  border: none;
+  font-family: "Rubik_Regular", sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.contact__form__button {
+  width: 100%;
+}
+
+.contact__svg {
+  margin: 50px auto 0 auto;
+  max-width: 1200px;
+
 }
 
 @media (max-width: 992px) {
@@ -1772,6 +1856,12 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    top: -40px;
+  }
+
+  .arrow:active {
+    opacity: 0.8;
   }
 
   .bestDeals__slider {
@@ -1809,12 +1899,12 @@ a:hover {
 
   .right {
     position: relative;
-    left: -20px;
+    left: -10px;
   }
 
   .left {
     position: relative;
-    left: 20px;
+    left: 15px;
   }
 
   .vines__order__element__input {
@@ -1845,17 +1935,15 @@ a:hover {
   .history__info,
   .vine__tipes__element {
     padding: 0 24px;
-  }
-
-  #Capa_1 {
-    width: 50px;
-    height: 50px;
+    box-sizing: border-box;
   }
 
   .red__white__vine__discount__grid {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
     gap: 50px;
   }
 
@@ -1890,8 +1978,10 @@ a:hover {
   .feedback__slider {
     left: 0;
   }
+
   .blog__flex {
     flex-direction: column;
+    gap: 50px;
   }
 
   .faq__flex {
@@ -1900,7 +1990,46 @@ a:hover {
   }
 
   .questions__flex__element {
-    height: 106px;
+    height: 107px;
+    box-sizing: border-box;
+  }
+
+  .questions__flex__element__text {
+    margin-top: 30px;
+  }
+
+  .questions__flex__element__button__text {
+    max-width: 347px;
+    text-wrap: wrap;
+  }
+
+  .questions__flex__element.active {
+    height: 177px;
+  }
+
+  .blog__flex__element {
+    max-width: 382px;
+  }
+
+  .personal__discound__background {
+    height: 421px;
+    min-width: 360px;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .what__we__do {
+    flex-direction: column;
+    width: 100%;
+    padding: 50px 24px 120px 24px;
+    box-sizing: border-box;
+  }
+
+  .contact__flex {
+    flex-direction: column;
+    padding: 0 24px;
+    box-sizing: border-box;
+    gap: 50px;
   }
 }
 

@@ -97,7 +97,7 @@ export const VineSlider = () => {
   };
   return (
     <>
-      <div id="best__deals" className="bestDeals__slider__flex">
+      <div className="bestDeals__slider__flex">
         <button className="arrow left" onClick={handlePrev}>
           <svg
             version="1.1"

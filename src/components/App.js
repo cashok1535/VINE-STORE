@@ -3,6 +3,7 @@ import { Main } from "./Main";
 import { BuyProvider } from "./BuyModal";
 import { OrderButton } from "./BuyModal";
 import { VineOrderModal } from "./VineOrderModal";
+import { Footer } from "./Footer";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <VineOrderModal />
         <Header />
         <Main />
+        <Footer />
       </BuyProvider>
     </div>
   );

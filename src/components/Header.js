@@ -44,6 +44,9 @@ export const Header = () => {
   const handleHeaderOpenNavbar = () => {
     setIsVisibleHeaderNavbar((prev) => !prev);
   };
+  const handleCLickHref = () => {
+    document.body.style.overflow = "auto";
+  };
   return (
     <header className="header">
       <div className="header__flex">
@@ -109,20 +112,35 @@ export const Header = () => {
                 </div>
                 <div className="header__navbar__phone__flex">
                   <ul className="header__navbar header__navbar__phone">
-                    <li className="header__navbar__element">
+                    <li
+                      onClick={handleCLickHref}
+                      className="header__navbar__element"
+                    >
                       <a href="#best__deals">Best Deals</a>
                     </li>
-                    <li className="header__navbar__element">
+                    <li
+                      onClick={handleCLickHref}
+                      className="header__navbar__element"
+                    >
                       <a href="#history__vine">History</a>
                     </li>
-                    <li className="header__navbar__element">
-                      <a href="#1">About Us</a>
+                    <li
+                      onClick={handleCLickHref}
+                      className="header__navbar__element"
+                    >
+                      <a href="#aboutUs">About Us</a>
                     </li>
-                    <li className="header__navbar__element">
-                      <a href="#1">Shop</a>
+                    <li
+                      onClick={handleCLickHref}
+                      className="header__navbar__element"
+                    >
+                      <a href="#shop__vines">Shop</a>
                     </li>
-                    <li className="header__navbar__element">
-                      <a href="#1">Contact Us</a>
+                    <li
+                      onClick={handleCLickHref}
+                      className="header__navbar__element"
+                    >
+                      <a href="#contact">Contact Us</a>
                     </li>
                   </ul>
                   <div className="social">
@@ -174,13 +192,13 @@ export const Header = () => {
                 <a href="#history__vine">History</a>
               </li>
               <li className="header__navbar__element">
-                <a href="#123">About Us</a>
+                <a href="#aboutUs">About Us</a>
               </li>
               <li className="header__navbar__element">
-                <a href="#123">Shop</a>
+                <a href="#shop__vines">Shop</a>
               </li>
               <li className="header__navbar__element">
-                <a href="#123">Contact Us</a>
+                <a href="#contact">Contact Us</a>
               </li>
             </ul>
             <div className="social">

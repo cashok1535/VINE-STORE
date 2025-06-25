@@ -25,7 +25,7 @@ export const FAQ = () => {
     }
   };
   return (
-    <div className="faq">
+    <div id="FAQ" className="faq">
       <div className="faq__flex">
         <div className="faq__flex__element">
           <div className="boutique__wines__italic">FAQ</div>
@@ -90,7 +90,10 @@ export const FAQ = () => {
                   }}
                   className="questions__flex__element__button"
                 >
-                  Are you a wholesale wine supplier?
+                  <div className="questions__flex__element__button__text">
+                    {" "}
+                    Are you a wholesale wine supplier?
+                  </div>
                   <div
                     className={`questions__flex__element__sign ${
                       activeQuestion === "one" ? "active" : ""
@@ -115,7 +118,9 @@ export const FAQ = () => {
                   }}
                   className="questions__flex__element__button"
                 >
-                  Do you ship wine within the USA?
+                  <div className="questions__flex__element__button__text">
+                    Do you ship wine within the USA?
+                  </div>
                   <div
                     className={`questions__flex__element__sign ${
                       activeQuestion === "two" ? "active" : ""
@@ -140,7 +145,9 @@ export const FAQ = () => {
                   }}
                   className="questions__flex__element__button"
                 >
-                  How many varieties are there in your winery?
+                  <div className="questions__flex__element__button__text">
+                    How many varieties are there in your winery?
+                  </div>
                   <div
                     className={`questions__flex__element__sign ${
                       activeQuestion === "three" ? "active" : ""
@@ -165,7 +172,9 @@ export const FAQ = () => {
                   }}
                   className="questions__flex__element__button"
                 >
-                  Do you advise on the choice of wine?
+                  <div className="questions__flex__element__button__text">
+                    Do you advise on the choice of wine?
+                  </div>
                   <div
                     className={`questions__flex__element__sign ${
                       activeQuestion === "four" ? "active" : ""
@@ -190,7 +199,9 @@ export const FAQ = () => {
                   }}
                   className="questions__flex__element__button"
                 >
-                  Where are your vineyards located?
+                  <div className="questions__flex__element__button__text">
+                    Where are your vineyards located?
+                  </div>
                   <div
                     className={`questions__flex__element__sign ${
                       activeQuestion === "five" ? "active" : ""

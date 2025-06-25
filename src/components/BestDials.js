@@ -2,7 +2,7 @@ import { VineSlider } from "./VIneSlider";
 
 export const BestDials = () => {
   return (
-    <div className="vineSlider">
+    <div id="best__deals" className="vineSlider">
       <div className="learn__more__vine__italicTitle">Best deals</div>
       <div className="learn__more__vine__title">Wines to Every Table</div>
       <div className="learn__more__vine__grape">
