@@ -9,7 +9,7 @@ export const WhatWeDo = () => {
             x="0px"
             y="0px"
             viewBox="0 0 100 100"
-            enable-background="new 0 0 100 100"
+            enableBackground="new 0 0 100 100"
             height="40px"
             width="40px"
           >
@@ -70,10 +70,10 @@ export const WhatWeDo = () => {
               d="M925,1200 l-1050,0 c-50,0,-75,-25,-75,-75 l0,-750 c0,-50,25,-75,75,-75 l125,0 l0,525 c0,116,52,165,175,165 l825,0 l0,135 c0,50,-25,75,-75,75 Z M1225,900 l-1050,0 c-50,0,-75,-25,-75,-75 l0,-125 l1200,0 l0,125 c0,50,-25,75,-75,75 Z M100,75 c0,-50,25,-75,75,-75 l1050,0 c50,0,75,25,75,75 l0,475 l-1200,0 Z M900,250 l200,0 c50,0,50,0,50,-50 c0,-50,0,-50,-50,-50 l-200,0 c-50,0,-50,0,-50,50 c0,50,0,50,50,50 Z M900,250 "
               fill="#c8693a"
               stroke="#c8693a"
-              stroke-dasharray="none"
-              stroke-linecap="inherit"
-              stroke-linejoin="inherit"
-              stroke-width="1"
+              strokeDasharray="none"
+              strokeLinecap="inherit"
+              strokeLinejoin="inherit"
+              strokeWidth="1"
               transform="matrix(0.05,0.0,0.0,-0.05,20.0,80.0)"
             ></path>
           </svg>
@@ -140,13 +140,13 @@ export const WhatWeDo = () => {
             x="0px"
             y="0px"
             viewBox="0 0 40 40"
-            enable-background="new 0 0 40 40"
+            enableBackground="new 0 0 40 40"
             height="40px"
             width="40px"
           >
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M19.2,6.5L7.6,7.6L6.5,19.2l14.3,14.3l12.8-12.8L19.2,6.5z   M13.9,13.9c-0.8,0.8-2,0.8-2.8,0c-0.8-0.8-0.8-2,0-2.8c0.8-0.8,2-0.8,2.8,0C14.7,11.8,14.7,13.1,13.9,13.9z M14.5,17.5  c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2s-0.9,2-2,2C15.4,19.5,14.5,18.6,14.5,17.5z M17.5,24.5h-2l7-9h2L17.5,24.5z M23.5,24.5  c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2C25.5,23.6,24.6,24.5,23.5,24.5z M17.5,17.5c0-0.6-0.4-1-1-1c-0.6,0-1,0.4-1,1  c0,0.6,0.4,1,1,1C17,18.5,17.5,18,17.5,17.5z M23.5,21.5c-0.6,0-1,0.4-1,1c0,0.6,0.4,1,1,1c0.6,0,1-0.4,1-1  C24.5,21.9,24,21.5,23.5,21.5z"
               fill="#c8693a"
             ></path>
