@@ -4,7 +4,7 @@ import footerGridThree from "../img/footerGridThree.webp";
 import footerGridFour from "../img/footerGridFour.webp";
 import footerGridFive from "../img/footerGridFive.webp";
 import footerGridSix from "../img/footerGridSix.webp";
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 const images = [
   {
     id: 1,
@@ -34,30 +34,30 @@ const images = [
 
 export const Footer = () => {
   const [isActiveSlider, setIsActiveSlider] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeSlide, setActiveSlide] = useState();
   const [slideWidth, setSlideWidth] = useState(0);
+  const [isAnim, setIsAnim] = useState();
   const slideRef = useRef(null);
 
   const countSlides = useMemo(() => {
     return images.length;
   }, []);
 
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (bodyRef.current) {
-  //       setWrapperWidth(bodyRef.current.offsetWidth);
-  //     }
-  //   };
-  //   handleResize();
-  //   window.addEventListener("resize", handleResize);
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, []);
+  useEffect(() => {
+    setSlideWidth(slideRef.current?.offsetWidth);
+  }, [activeSlide]);
 
   const handleOpenSlider = (id) => {
-    setIsActiveSlider(true);
-    setActiveSlide(id);
+    new Promise(() => {
+      setIsAnim(false);
+      setActiveSlide(id);
+    })
+      .then(setIsActiveSlider(true))
+      .finally(
+        setTimeout(() => {
+          setIsAnim(true);
+        }, 500)
+      );
   };
 
   const handleNext = () => {
@@ -261,7 +261,8 @@ export const Footer = () => {
             <div
               className="footer__slider"
               style={{
-                left: `-${activeSlide * slideRef.current?.offsetWidth}px` /////
+                transform: "translateX(-" + activeSlide * slideWidth + "px)",
+                transition: isAnim ? "all .5s" : "none",
               }}
             >
               {images.map((el) => (

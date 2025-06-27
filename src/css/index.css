@@ -76,7 +76,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover > svg {
+.href__social:hover>svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -258,7 +258,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover > a {
+.learn__button:hover>a {
   color: #000 !important;
 }
 
@@ -1577,8 +1577,7 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover
-  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1705,6 +1704,7 @@ a:hover {
   margin: 50px auto 0 auto;
   max-width: 1200px;
 }
+
 .footer {
   background: #1b1613;
   color: #fff;
@@ -1763,6 +1763,7 @@ a:hover {
 #part2 {
   fill: #c8693a;
 }
+
 .footer__link__social:hover svg #part3 {
   fill: #1b1613;
 }
@@ -1793,25 +1794,27 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   background-color: #000000e7;
+
 }
 
 .footer__slider__overflow {
   max-width: 689px;
   width: 100%;
   overflow: hidden;
-  position: relative;
-  left: 0;
-  transition: all 0.5s;
 }
+
 .footer__slider {
   display: flex;
   justify-content: space-between;
+  transition: all .5s;
 }
+
 .footer__flex__element {
   max-width: 689px;
   width: 100%;
   height: auto;
 }
+
 @media (max-width: 992px) {
   .boutique__wines__flex__left {
     display: none;
