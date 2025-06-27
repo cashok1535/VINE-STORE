@@ -91,7 +91,6 @@ export const FAQ = () => {
                   className="questions__flex__element__button"
                 >
                   <div className="questions__flex__element__button__text">
-                    {" "}
                     Are you a wholesale wine supplier?
                   </div>
                   <div

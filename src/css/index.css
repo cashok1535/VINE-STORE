@@ -1783,6 +1783,35 @@ a:hover {
   cursor: pointer;
 }
 
+.parrent__footer__slider {
+  position: fixed;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000000e7;
+}
+
+.footer__slider__overflow {
+  max-width: 689px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  left: 0;
+  transition: all 0.5s;
+}
+.footer__slider {
+  display: flex;
+  justify-content: space-between;
+}
+.footer__flex__element {
+  max-width: 689px;
+  width: 100%;
+  height: auto;
+}
 @media (max-width: 992px) {
   .boutique__wines__flex__left {
     display: none;
@@ -1925,8 +1954,8 @@ a:hover {
     background-color: #fff;
     border-radius: 50px;
     fill: #212736;
-    width: 25px;
-    height: 25px;
+    max-width: 25px;
+    max-height: 25px;
     z-index: 2;
     display: flex;
     justify-content: center;
