@@ -8,27 +8,38 @@ import { useState, useMemo, useRef, useEffect } from "react";
 const images = [
   {
     id: 1,
+    subId: 1,
     img: footerGridOne,
   },
   {
     id: 2,
+    subId: 2,
     img: footerGridTwo,
   },
   {
     id: 3,
+    subId: 3,
     img: footerGridThree,
   },
   {
     id: 4,
+    subId: 4,
     img: footerGridFour,
   },
   {
     id: 5,
+    subId: 5,
     img: footerGridFive,
   },
   {
     id: 6,
+    subId: 6,
     img: footerGridSix,
+  },
+  {
+    id: 1,
+    subId: 7,
+    img: footerGridOne,
   },
 ];
 
@@ -36,6 +47,7 @@ export const Footer = () => {
   const [isActiveSlider, setIsActiveSlider] = useState(false);
   const [activeSlide, setActiveSlide] = useState();
   const [slideWidth, setSlideWidth] = useState(0);
+  const [sliderTransition, setSliderTransition] = useState(0);
   const [isAnim, setIsAnim] = useState();
   const slideRef = useRef(null);
 
@@ -47,21 +59,36 @@ export const Footer = () => {
     setSlideWidth(slideRef.current?.offsetWidth);
   }, [activeSlide]);
 
+  useEffect(() => {
+    setSliderTransition(slideWidth * activeSlide);
+  }, [activeSlide, slideWidth]);
+
   const handleOpenSlider = (id) => {
     new Promise(() => {
       setIsAnim(false);
-      setActiveSlide(id);
     })
-      .then(setIsActiveSlider(true))
-      .finally(
+      .then(setActiveSlide(id))
+      .then(
         setTimeout(() => {
           setIsAnim(true);
-        }, 500)
-      );
+        }, 100)
+      )
+      .then(setIsActiveSlider(true));
   };
 
   const handleNext = () => {
-    setActiveSlide((prev) => prev + 1);
+    setTimeout(() => {
+      if (activeSlide < countSlides - 1) {
+        setActiveSlide((prev) => prev + 1);
+      } else {
+        setIsAnim(false);
+        setActiveSlide(0);
+        setTimeout(() => {
+          setIsAnim(true);
+          setActiveSlide(1);
+        }, 1);
+      }
+    }, 400);
   };
   const handlePrev = () => {
     setActiveSlide((prev) => {
@@ -203,17 +230,19 @@ export const Footer = () => {
           <div className="footer__flex__element__title">Instagram</div>
           <div className="what__we__do__flex__line"></div>
           <div className="footer__flex__element__grid">
-            {images.map((el) => (
-              <img
-                onClick={() => {
-                  handleOpenSlider(el.id - 1);
-                }}
-                key={el.id}
-                src={el.img}
-                alt=""
-                className="footer__flex__element"
-              />
-            ))}
+            {images
+              .filter((el) => el.subId <= el.id)
+              .map((el) => (
+                <img
+                  onClick={() => {
+                    handleOpenSlider(el.id - 1);
+                  }}
+                  key={el.id}
+                  src={el.img}
+                  alt=""
+                  className="footer__flex__element"
+                />
+              ))}
           </div>
         </div>
       </div>
@@ -261,7 +290,7 @@ export const Footer = () => {
             <div
               className="footer__slider"
               style={{
-                transform: "translateX(-" + activeSlide * slideWidth + "px)",
+                transform: "translateX(-" + sliderTransition + "px)",
                 transition: isAnim ? "all .5s" : "none",
               }}
             >

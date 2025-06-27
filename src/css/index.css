@@ -76,7 +76,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover>svg {
+.href__social:hover > svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -258,7 +258,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover>a {
+.learn__button:hover > a {
   color: #000 !important;
 }
 
@@ -1577,7 +1577,8 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover
+  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1794,9 +1795,16 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   background-color: #000000e7;
-
+  animation: opacity 0.5s forwards;
 }
-
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .footer__slider__overflow {
   max-width: 689px;
   width: 100%;
@@ -1806,7 +1814,7 @@ a:hover {
 .footer__slider {
   display: flex;
   justify-content: space-between;
-  transition: all .5s;
+  transition: all 0.5s;
 }
 
 .footer__flex__element {
