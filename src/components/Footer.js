@@ -50,6 +50,7 @@ export const Footer = () => {
   const [sliderTransition, setSliderTransition] = useState(0);
   const [isAnim, setIsAnim] = useState();
   const [isClickDisabled, setIsClickDisabled] = useState(false);
+  const [scaleCount, setScaleCount] = useState(0);
   const slideRef = useRef(null);
 
   const countSlides = useMemo(() => {
@@ -77,14 +78,20 @@ export const Footer = () => {
       .then(setIsActiveSlider(true));
   };
 
+  const handleCloseSlider = () => {
+    setIsActiveSlider(false);
+    setScaleCount(0);
+  };
+
   const handleDisabled = () => {
     setIsClickDisabled(true);
     setTimeout(() => {
       setIsClickDisabled(false);
-    }, 600);
+    }, 700);
   };
 
-  const handleNext = () => { ////
+  const handleNext = () => {
+    setScaleCount(0);
     handleDisabled();
     if (activeSlide < countSlides - 1) {
       setActiveSlide((prev) => prev + 1);
@@ -94,11 +101,12 @@ export const Footer = () => {
       setTimeout(() => {
         setIsAnim(true);
         setActiveSlide(1);
-      }, 1);
+      }, 100);
     }
   };
 
-  const handlePrev = () => { ///
+  const handlePrev = () => {
+    setScaleCount(0);
     handleDisabled();
     if (activeSlide >= 1) {
       setActiveSlide((prev) => prev - 1);
@@ -108,8 +116,23 @@ export const Footer = () => {
       setTimeout(() => {
         setIsAnim(true);
         setActiveSlide(countSlides - 2);
-      }, 1);
+      }, 100);
     }
+  };
+
+  const handleScaleMore = () => {
+    setScaleCount((prev) => {
+      if (prev < 3) {
+        return prev + 1;
+      } else return prev;
+    });
+  };
+  const handleScaleLess = () => {
+    setScaleCount((prev) => {
+      if (prev > 0) {
+        return prev - 1;
+      } else return prev;
+    });
   };
   return (
     <footer className="footer">
@@ -262,13 +285,31 @@ export const Footer = () => {
       </div>
       {isActiveSlider && (
         <div className="parrent__footer__slider">
+          <div className="footer__slider__buttons">
+            <button
+              className={`footer__slider__top__button slider__more__size ${
+                scaleCount !== 3 ? "active" : "inActive"
+              }`}
+              onClick={handleScaleMore}
+            ></button>
+            <button
+              className={`footer__slider__top__button slider__less__size ${
+                scaleCount !== 0 ? "active" : "inActive"
+              }`}
+              onClick={handleScaleLess}
+            ></button>
+            <button
+              className="footer__slider__top__button  slider__close"
+              onClick={handleCloseSlider}
+            ></button>
+          </div>
           <button
             onClick={handlePrev}
             disabled={isClickDisabled}
-            className="arrow left"
+            className="arrow left footer__arrow"
           >
             <svg
-              fill="#ffffff80"
+              fill="#fff"
               version="1.1"
               id="Capa_1"
               xmlns="http://www.w3.org/2000/svg"
@@ -304,7 +345,13 @@ export const Footer = () => {
               <g></g>
             </svg>
           </button>
-          <div ref={slideRef} className="footer__slider__overflow">
+          <div
+            ref={slideRef}
+            className="footer__slider__overflow"
+            style={{
+              transform: "scale(" + (1 + scaleCount * 0.4) + ")",
+            }}
+          >
             <div
               className="footer__slider"
               style={{
@@ -318,6 +365,13 @@ export const Footer = () => {
                   src={el.img}
                   alt=""
                   className="footer__flex__element"
+                  style={{
+                    transform:
+                      el.id - 1 === activeSlide
+                        ? "scale(" + (1 + scaleCount * 0.4) + ")"
+                        : "scale(1)",
+                    transition: "transform 0.3s ease-out",
+                  }}
                 />
               ))}
             </div>
@@ -325,10 +379,10 @@ export const Footer = () => {
           <button
             onClick={handleNext}
             disabled={isClickDisabled}
-            className="arrow right"
+            className="arrow right footer__arrow"
           >
             <svg
-              fill="#ffffff80"
+              fill="#fff"
               version="1.1"
               id="Capa_1"
               xmlns="http://www.w3.org/2000/svg"
