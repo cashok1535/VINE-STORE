@@ -49,6 +49,7 @@ export const Footer = () => {
   const [slideWidth, setSlideWidth] = useState(0);
   const [sliderTransition, setSliderTransition] = useState(0);
   const [isAnim, setIsAnim] = useState();
+  const [isClickDisabled, setIsClickDisabled] = useState(false);
   const slideRef = useRef(null);
 
   const countSlides = useMemo(() => {
@@ -76,26 +77,39 @@ export const Footer = () => {
       .then(setIsActiveSlider(true));
   };
 
-  const handleNext = () => {
+  const handleDisabled = () => {
+    setIsClickDisabled(true);
     setTimeout(() => {
-      if (activeSlide < countSlides - 1) {
-        setActiveSlide((prev) => prev + 1);
-      } else {
-        setIsAnim(false);
-        setActiveSlide(0);
-        setTimeout(() => {
-          setIsAnim(true);
-          setActiveSlide(1);
-        }, 1);
-      }
-    }, 400);
+      setIsClickDisabled(false);
+    }, 600);
   };
-  const handlePrev = () => {
-    setActiveSlide((prev) => {
-      if (prev >= 0) {
-        return prev - 1;
-      } else return prev;
-    });
+
+  const handleNext = () => { ////
+    handleDisabled();
+    if (activeSlide < countSlides - 1) {
+      setActiveSlide((prev) => prev + 1);
+    } else {
+      setIsAnim(false);
+      setActiveSlide(0);
+      setTimeout(() => {
+        setIsAnim(true);
+        setActiveSlide(1);
+      }, 1);
+    }
+  };
+
+  const handlePrev = () => { ///
+    handleDisabled();
+    if (activeSlide >= 1) {
+      setActiveSlide((prev) => prev - 1);
+    } else {
+      setIsAnim(false);
+      setActiveSlide(countSlides - 1);
+      setTimeout(() => {
+        setIsAnim(true);
+        setActiveSlide(countSlides - 2);
+      }, 1);
+    }
   };
   return (
     <footer className="footer">
@@ -248,7 +262,11 @@ export const Footer = () => {
       </div>
       {isActiveSlider && (
         <div className="parrent__footer__slider">
-          <button onClick={handlePrev} className="arrow left">
+          <button
+            onClick={handlePrev}
+            disabled={isClickDisabled}
+            className="arrow left"
+          >
             <svg
               fill="#ffffff80"
               version="1.1"
@@ -296,7 +314,7 @@ export const Footer = () => {
             >
               {images.map((el) => (
                 <img
-                  key={el.id}
+                  key={el.subId}
                   src={el.img}
                   alt=""
                   className="footer__flex__element"
@@ -304,7 +322,11 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-          <button onClick={handleNext} className="arrow right">
+          <button
+            onClick={handleNext}
+            disabled={isClickDisabled}
+            className="arrow right"
+          >
             <svg
               fill="#ffffff80"
               version="1.1"

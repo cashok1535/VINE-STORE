@@ -1,3 +1,5 @@
+///fix slider
+
 import { useEffect, useRef, useState } from "react";
 import { VineSliderElement } from "./VineSliderElement";
 import { Buy } from "./BuyModal";
@@ -7,7 +9,8 @@ export const VineSlider = () => {
   const [numberSlide, setNumberSlide] = useState(0);
   const [isTransition, setIsTransition] = useState(false);
   const [activeSlide, setActiveSlide] = useState(0);
-  const [slideCount, setSlideCount]= useState()
+  const [slideCount, setSlideCount] = useState();
+
   const slideRef = useRef(null);
   const sliderRef = useRef(null);
   const { handleOrder, isPhone } = Buy();
