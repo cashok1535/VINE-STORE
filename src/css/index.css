@@ -543,6 +543,7 @@ a:hover {
   fill: #ffffff7e;
   transition: all 0.2s;
   margin: 0 auto;
+  z-index: 5;
 }
 
 .right {

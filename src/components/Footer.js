@@ -101,7 +101,7 @@ export const Footer = () => {
       setTimeout(() => {
         setIsAnim(true);
         setActiveSlide(1);
-      }, 100);
+      }, 50);
     }
   };
 
@@ -116,7 +116,7 @@ export const Footer = () => {
       setTimeout(() => {
         setIsAnim(true);
         setActiveSlide(countSlides - 2);
-      }, 100);
+      }, 50);
     }
   };
 
@@ -371,6 +371,7 @@ export const Footer = () => {
                         ? "scale(" + (1 + scaleCount * 0.4) + ")"
                         : "scale(1)",
                     transition: "transform 0.3s ease-out",
+                    cursor: `${scaleCount !== 0 && "move"}`,
                   }}
                 />
               ))}
