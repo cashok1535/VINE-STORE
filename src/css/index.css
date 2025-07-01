@@ -1799,7 +1799,6 @@ a:hover {
   background-color: #000000e7;
   animation: opacity 0.5s forwards;
 }
-
 @keyframes opacity {
   0% {
     opacity: 0;
