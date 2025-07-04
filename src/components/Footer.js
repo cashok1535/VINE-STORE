@@ -5,6 +5,7 @@ import footerGridFour from "../img/footerGridFour.webp";
 import footerGridFive from "../img/footerGridFive.webp";
 import footerGridSix from "../img/footerGridSix.webp";
 import { useState, useMemo, useRef, useEffect } from "react";
+import { FooterSlider } from "./FooterSlider";
 const images = [
   {
     id: 1,
@@ -45,10 +46,10 @@ const images = [
 
 export const Footer = () => {
   const [isActiveSlider, setIsActiveSlider] = useState(false);
-  const [activeSlide, setActiveSlide] = useState();
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [isAnim, setIsAnim] = useState();
   const [slideWidth, setSlideWidth] = useState(0);
   const [sliderTransition, setSliderTransition] = useState(0);
-  const [isAnim, setIsAnim] = useState();
   const [isClickDisabled, setIsClickDisabled] = useState(false);
   const [scaleCount, setScaleCount] = useState(0);
   const slideRef = useRef(null);
@@ -56,14 +57,6 @@ export const Footer = () => {
   const countSlides = useMemo(() => {
     return images.length;
   }, []);
-
-  useEffect(() => {
-    setSlideWidth(slideRef.current?.offsetWidth);
-  }, [activeSlide]);
-
-  useEffect(() => {
-    setSliderTransition(slideWidth * activeSlide);
-  }, [activeSlide, slideWidth]);
 
   const handleOpenSlider = (id) => {
     new Promise(() => {
@@ -119,6 +112,13 @@ export const Footer = () => {
       }, 50);
     }
   };
+  useEffect(() => {
+    setSlideWidth(slideRef.current?.offsetWidth);
+  }, [activeSlide]);
+
+  useEffect(() => {
+    setSliderTransition(slideWidth * activeSlide);
+  }, [activeSlide, slideWidth]);
 
   const handleScaleMore = () => {
     setScaleCount((prev) => {
@@ -349,7 +349,14 @@ export const Footer = () => {
             ref={slideRef}
             className="footer__slider__overflow"
             style={{
-              transform: "scale(" + (1 + scaleCount * 0.4) + ")",
+              transform:
+                " translate3d(0px, 0px, 0px) scale3d(" +
+                (1 + scaleCount) +
+                "," +
+                (1 + scaleCount) +
+                "," +
+                "1" +
+                ")",
             }}
           >
             <div
@@ -360,19 +367,11 @@ export const Footer = () => {
               }}
             >
               {images.map((el) => (
-                <img
+                <FooterSlider
                   key={el.subId}
-                  src={el.img}
-                  alt=""
-                  className="footer__flex__element"
-                  style={{
-                    transform:
-                      el.id - 1 === activeSlide
-                        ? "scale(" + (1 + scaleCount * 0.4) + ")"
-                        : "scale(1)",
-                    transition: "transform 0.3s ease-out",
-                    cursor: `${scaleCount !== 0 && "move"}`,
-                  }}
+                  img={el.img}
+                  activeSlide={activeSlide}
+                  scaleCount={scaleCount}
                 />
               ))}
             </div>
