@@ -1,39 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import logo from "../img/logo (1).svg";
 import { Buy } from "./BuyModal";
 
 export const Header = () => {
-  const [isPhone, setIsPhone] = useState(false);
   const [isVisibleHeaderNavbar, setIsVisibleHeaderNavbar] = useState(false);
-  const [wrapperWidth, setWrapperWidth] = useState(null);
-  const bodyRef = useRef(document.body);
-  const { phone } = Buy();
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (bodyRef.current) {
-        setWrapperWidth(bodyRef.current.offsetWidth);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (wrapperWidth < 992) {
-      setIsPhone(true);
-    } else {
-      setIsPhone(false);
-    }
-  }, [wrapperWidth]);
-
-  useEffect(() => {
-    phone(isPhone);
-  }, [isPhone, phone]);
-
+  const { isPhone } = Buy();
   useEffect(() => {
     document.body.style.overflow = isVisibleHeaderNavbar ? "hidden" : "auto";
     return () => {

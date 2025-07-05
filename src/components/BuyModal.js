@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState, useRef } from "react";
 import whiteVine from "../img/whiteVine.jpeg";
 import redVine from "../img/redVine.jpeg";
 
@@ -63,7 +63,30 @@ export const BuyProvider = ({ children }) => {
   const [countAllVines, setCountAllVines] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [isDiscount, setIsDiscount] = useState();
-  const [isPhone, setIsPhone] = useState();
+  const [isPhone, setIsPhone] = useState(false);
+  const [wrapperWidth, setWrapperWidth] = useState(null);
+  const bodyRef = useRef(document.body);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (bodyRef.current) {
+        setWrapperWidth(bodyRef.current.offsetWidth);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (wrapperWidth < 992) {
+      setIsPhone(true);
+    } else {
+      setIsPhone(false);
+    }
+  }, [wrapperWidth]);
 
   useEffect(() => {
     return () => {

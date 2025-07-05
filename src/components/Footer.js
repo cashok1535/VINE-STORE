@@ -113,8 +113,15 @@ export const Footer = () => {
     }
   };
   useEffect(() => {
-    setSlideWidth(slideRef.current?.offsetWidth);
-  }, [activeSlide]);
+    const handleResize = () => {
+      setSlideWidth(slideRef.current?.offsetWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     setSliderTransition(slideWidth * activeSlide);
@@ -420,6 +427,14 @@ export const Footer = () => {
           </button>
         </div>
       )}
+      <div className="footer__bottom">
+        <div className="footer__bottom__flex">
+          <div className="fotter__bottom__flex__element">© Created by</div>
+          <div className="fotter__bottom__flex__element">
+            All rights Reserved
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };

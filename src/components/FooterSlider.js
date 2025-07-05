@@ -26,6 +26,8 @@ export const FooterSlider = ({ img, scaleCount }) => {
     (e) => {
       if (!isDragging) return;
       const element = imageRef.current.getBoundingClientRect();
+      console.log(element);
+      
       const dx = e.clientX - initialMousePos.current.x;
       const dy = e.clientY - initialMousePos.current.y;
       let newX = initialImagePos.current.x + dx;

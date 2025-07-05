@@ -48,7 +48,14 @@ export const Feedback = () => {
   }, [countSlider]);
 
   useEffect(() => {
-    setWidthSlide(sliderElementRef.current.offsetWidth);
+    const handleResize = () => {
+      setWidthSlide(sliderElementRef.current.offsetWidth);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize)
+    return ()=>{
+      window.removeEventListener("resize", handleResize)
+    }
   }, []);
   return (
     <div className="feedback">
