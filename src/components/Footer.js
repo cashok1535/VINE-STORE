@@ -115,16 +115,13 @@ export const Footer = () => {
   useEffect(() => {
     const handleResize = () => {
       setSlideWidth(slideRef.current?.offsetWidth);
+      setSliderTransition(slideWidth * activeSlide);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
-
-  useEffect(() => {
-    setSliderTransition(slideWidth * activeSlide);
   }, [activeSlide, slideWidth]);
 
   const handleScaleMore = () => {
