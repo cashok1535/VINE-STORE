@@ -4,7 +4,7 @@ import footerGridThree from "../img/footerGridThree.webp";
 import footerGridFour from "../img/footerGridFour.webp";
 import footerGridFive from "../img/footerGridFive.webp";
 import footerGridSix from "../img/footerGridSix.webp";
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { FooterSlider } from "./FooterSlider";
 const images = [
   {
@@ -49,15 +49,18 @@ export const Footer = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isAnim, setIsAnim] = useState();
   const [slideWidth, setSlideWidth] = useState(0);
-  const [sliderTransition, setSliderTransition] = useState(0);
+  const [sliderWidth, setSliderWidth] = useState(0);
+  const [sliderTranslate, setSliderTranslate] = useState(0);
   const [isClickDisabled, setIsClickDisabled] = useState(false);
   const [scaleCount, setScaleCount] = useState(0);
   const [wrapperSize, setWrapperSize] = useState({
     height: window.innerHeight,
     width: window.offsetWidth,
   });
-
+  const [isDrag, setIsDrag] = useState(false);
+  const sliderWidthRef = useRef(null);
   const slideRef = useRef(null);
+  const initialMousePos = useRef({ x: 0 });
 
   const countSlides = useMemo(() => {
     return images.length;
@@ -119,16 +122,75 @@ export const Footer = () => {
   };
   useEffect(() => {
     const handleResize = () => {
-      setWrapperSize({ height: window.innerHeight, width: window.innerWidth });
+      setSliderTranslate(slideWidth * activeSlide);
+      setWrapperSize({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
       setSlideWidth(slideRef.current?.offsetWidth);
-      setSliderTransition(slideWidth * activeSlide);
+      if (sliderWidthRef.current) {
+        setSliderWidth(sliderWidthRef.current.offsetWidth * images.length);
+      }
     };
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [activeSlide, slideWidth]);
+  }, [activeSlide, slideWidth, sliderWidth, isDrag]);
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+    if (scaleCount === 0) {
+      setIsDrag(true);
+      initialMousePos.current = { x: e.clientX };
+    }
+  };
+
+  const handleMouseUp = useCallback(
+    (e) => {
+      setIsDrag(false);
+      if (!isDrag) return;
+      const dx = e.clientX - initialMousePos.current.x;
+      if (dx < 0) {
+        setActiveSlide((prev) => {
+          if (prev <= countSlides - 2) {
+            return prev + 1;
+          } else {
+            setIsAnim(false);
+            setActiveSlide(0);
+            setTimeout(() => {
+              setIsAnim(true);
+              setActiveSlide(1);
+            }, 50);
+          }
+        });
+      } else if (dx > 0) {
+        setActiveSlide((prev) => {
+          if (prev > 0) {
+            return prev - 1;
+          } else {
+            setIsAnim(false);
+            setActiveSlide(countSlides - 1);
+            setTimeout(() => {
+              setIsAnim(true);
+              setActiveSlide(countSlides - 2);
+            }, 50);
+          }
+        });
+      } else return;
+    },
+    [isDrag, countSlides]
+  );
+
+  useEffect(() => {
+    if (isDrag) {
+      document.body.addEventListener("mouseup", handleMouseUp);
+    }
+    return () => {
+      document.body.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDrag, handleMouseUp]);
 
   const handleScaleMore = () => {
     setScaleCount((prev) => {
@@ -371,9 +433,12 @@ export const Footer = () => {
           >
             <div
               className="footer__slider"
+              onMouseDown={handleMouseDown}
+              ref={sliderWidthRef}
               style={{
-                transform: "translateX(-" + sliderTransition + "px)",
-                transition: isAnim ? "all .5s" : "none",
+                position: "relative",
+                transform: "translateX(-" + sliderTranslate + "px)",
+                transition: isAnim && !isDrag ? "all .5s" : "none",
               }}
             >
               {images.map((el) => (

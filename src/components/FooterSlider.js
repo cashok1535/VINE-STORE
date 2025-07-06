@@ -13,14 +13,17 @@ export const FooterSlider = ({ img, scaleCount, wrapperSize }) => {
     }
   }, [scaleCount]);
 
-  const handleMouseDown = (e) => {
-    if (scaleCount > 0) {
-      setIsDragging(true);
-      initialMousePos.current = { x: e.clientX, y: e.clientY };
-      initialImagePos.current = { x: position.x, y: position.y };
-    }
-    e.preventDefault();
-  };
+  const handleMouseDown = useCallback(
+    (e) => {
+      if (scaleCount > 0) {
+        setIsDragging(true);
+        initialMousePos.current = { x: e.clientX, y: e.clientY };
+        initialImagePos.current = { x: position.x, y: position.y };
+      }
+      e.preventDefault();
+    },
+    [position, scaleCount]
+  );
 
   const handleMouseMove = useCallback(
     (e) => {
@@ -48,23 +51,30 @@ export const FooterSlider = ({ img, scaleCount, wrapperSize }) => {
         y: 0,
       });
     }
-    console.log(element);
   }, [wrapperSize]);
 
   useEffect(() => {
     if (isDragging) {
+      document.addEventListener("touchstart", handleMouseDown, {
+        passive: false,
+      });
       document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("touchmove", handleMouseMove, {
+        passive: false,
+      });
       document.addEventListener("mouseup", handleMouseUp);
-    } else {
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
+      document.addEventListener("touchend", handleMouseUp);
     }
-
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("touchmove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("touchend", handleMouseUp);
+      document.removeEventListener("touchstart", handleMouseDown, {
+        passive: false,
+      });
     };
-  }, [isDragging, handleMouseMove, handleMouseUp]);
+  }, [isDragging, handleMouseMove, handleMouseUp, handleMouseDown]);
 
   return (
     <img
