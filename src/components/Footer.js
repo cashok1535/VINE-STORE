@@ -52,6 +52,11 @@ export const Footer = () => {
   const [sliderTransition, setSliderTransition] = useState(0);
   const [isClickDisabled, setIsClickDisabled] = useState(false);
   const [scaleCount, setScaleCount] = useState(0);
+  const [wrapperSize, setWrapperSize] = useState({
+    height: window.innerHeight,
+    width: window.offsetWidth,
+  });
+
   const slideRef = useRef(null);
 
   const countSlides = useMemo(() => {
@@ -114,6 +119,7 @@ export const Footer = () => {
   };
   useEffect(() => {
     const handleResize = () => {
+      setWrapperSize({ height: window.innerHeight, width: window.innerWidth });
       setSlideWidth(slideRef.current?.offsetWidth);
       setSliderTransition(slideWidth * activeSlide);
     };
@@ -376,6 +382,7 @@ export const Footer = () => {
                   img={el.img}
                   activeSlide={activeSlide}
                   scaleCount={scaleCount}
+                  wrapperSize={wrapperSize}
                 />
               ))}
             </div>

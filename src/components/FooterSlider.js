@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, useRef } from "react";
 
-export const FooterSlider = ({ img, scaleCount }) => {
+export const FooterSlider = ({ img, scaleCount, wrapperSize }) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const imageRef = useRef(null);
@@ -25,9 +25,6 @@ export const FooterSlider = ({ img, scaleCount }) => {
   const handleMouseMove = useCallback(
     (e) => {
       if (!isDragging) return;
-      const element = imageRef.current.getBoundingClientRect();
-      console.log(element);
-      
       const dx = e.clientX - initialMousePos.current.x;
       const dy = e.clientY - initialMousePos.current.y;
       let newX = initialImagePos.current.x + dx;
@@ -39,7 +36,20 @@ export const FooterSlider = ({ img, scaleCount }) => {
 
   const handleMouseUp = useCallback(() => {
     setIsDragging(false);
-  }, []);
+    const element = imageRef.current.getBoundingClientRect();
+    if (
+      element.top > wrapperSize.height ||
+      element.bottom <= 0 ||
+      element.left > wrapperSize.width ||
+      element.right <= 0
+    ) {
+      setPosition({
+        x: 0,
+        y: 0,
+      });
+    }
+    console.log(element);
+  }, [wrapperSize]);
 
   useEffect(() => {
     if (isDragging) {
@@ -66,7 +76,7 @@ export const FooterSlider = ({ img, scaleCount }) => {
       style={{
         top: position.y,
         left: position.x,
-        transition: "transform 0.3s ease-out",
+        transition: `transform 0.3s,  ${!isDragging && "top 1s, left 1s"}`,
         cursor: `${scaleCount !== 0 ? "move" : "default"}`,
       }}
     />
