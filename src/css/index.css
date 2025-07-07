@@ -76,7 +76,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover > svg {
+.href__social:hover>svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -258,7 +258,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover > a {
+.learn__button:hover>a {
   color: #000 !important;
 }
 
@@ -551,7 +551,15 @@ a:hover {
   transform: rotate(-90deg);
 }
 
+.footer__right {
+  transform: rotate(-90deg);
+}
+
 .left {
+  transform: rotate(90deg);
+}
+
+.footer__left {
   transform: rotate(90deg);
 }
 
@@ -1579,8 +1587,7 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover
-  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1794,17 +1801,21 @@ a:hover {
   width: 100%;
   height: 100%;
   align-items: center;
+  justify-content: space-between;
   background-color: #000000e7;
   animation: opacity 0.5s forwards;
 }
+
 @keyframes opacity {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 .footer__slider__overflow {
   max-width: 689px;
   width: 100%;
@@ -1873,13 +1884,8 @@ a:hover {
   cursor: pointer;
 }
 
-.footer__arrow {
-  opacity: 0.5;
-}
 
-.footer__arrow:hover {
-  opacity: 1;
-}
+
 
 .footer__bottom {
   width: 100%;
@@ -1898,9 +1904,27 @@ a:hover {
   width: 100%;
   margin: 0 auto;
 }
+
 .fotter__bottom__flex__element {
   font-family: "Rubik_Regular", sans-serif;
   font-size: 14px;
+}
+
+.footer__arrow {
+  opacity: 0.5;
+  background: #00000033;
+  height: 35px;
+  width: 65px;
+  border-radius: 0px;
+  border: none;
+  outline: none;
+  z-index: 4;
+  transition: opacity .2s;
+  position: absolute;
+}
+
+.footer__arrow:hover {
+  opacity: 1;
 }
 
 @media (max-width: 992px) {
@@ -2036,23 +2060,33 @@ a:hover {
     display: none;
   }
 
-  .arrow svg {
-    width: 15px;
-    height: 10px;
+  .testemonial__arrow svg {
+    width: 12px;
+    height: 12px;
+    fill: #ffffff;
   }
 
-  .arrow {
-    background-color: #fff;
+  .testemonial__arrow {
+    background-color: #c8693a;
     border-radius: 50px;
-    fill: #212736;
-    max-width: 25px;
-    max-height: 25px;
+    width: 24px;
+    height: 24px;
     z-index: 2;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     top: -40px;
+    box-sizing: border-box;
+    border: none;
+  }
+
+  .testemonial__arrow.left {
+    left: 15px;
+  }
+
+  .testemonial__arrow.right {
+    right: 15px;
   }
 
   .arrow:active {
@@ -2092,14 +2126,14 @@ a:hover {
     padding: 0 8px 0 30px;
   }
 
-  .right {
-    position: relative;
-    left: -10px;
+  .footer__right {
+    position: absolute;
+    right: -10px;
   }
 
-  .left {
-    position: relative;
-    left: 15px;
+  .footer__left {
+    position: absolute;
+    left: -15px;
   }
 
   .vines__order__element__input {
@@ -2246,11 +2280,13 @@ a:hover {
     display: flex;
     justify-content: center;
   }
+
   .footer__flex {
     flex-direction: column;
     text-align: center;
     gap: 50px;
   }
+
   .footer__flex__element {
     align-items: center;
   }

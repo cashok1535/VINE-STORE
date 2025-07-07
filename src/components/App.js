@@ -4,15 +4,27 @@ import { BuyProvider } from "./BuyModal";
 import { OrderButton } from "./BuyModal";
 import { VineOrderModal } from "./VineOrderModal";
 import { Footer } from "./Footer";
+import { Routes, Route } from "react-router";
+import { VineOrderPage } from "./VineOrderPage";
 
 function App() {
   return (
     <div className="App">
       <BuyProvider>
-        <OrderButton />
-        <VineOrderModal />
         <Header />
-        <Main />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <OrderButton />
+                <VineOrderModal />
+                <Main />
+              </>
+            }
+          />
+          <Route path="/shop/:vineName" element={<VineOrderPage />} />
+        </Routes>
         <Footer />
       </BuyProvider>
     </div>

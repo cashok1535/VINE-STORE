@@ -378,7 +378,7 @@ export const Footer = () => {
           <button
             onClick={handlePrev}
             disabled={isClickDisabled}
-            className="arrow left footer__arrow"
+            className="footer__left footer__arrow"
           >
             <svg
               fill="#fff"
@@ -455,7 +455,7 @@ export const Footer = () => {
           <button
             onClick={handleNext}
             disabled={isClickDisabled}
-            className="arrow right footer__arrow"
+            className="footer__right footer__arrow"
           >
             <svg
               fill="#fff"

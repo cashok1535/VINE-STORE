@@ -52,10 +52,10 @@ export const Feedback = () => {
       setWidthSlide(sliderElementRef.current.offsetWidth);
     };
     handleResize();
-    window.addEventListener("resize", handleResize)
-    return ()=>{
-      window.removeEventListener("resize", handleResize)
-    }
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
   return (
     <div className="feedback">
@@ -112,7 +112,7 @@ export const Feedback = () => {
         Wine is a bottled poetry. Read some stories from our customers below.
       </div>
       <div className="feedback__slider__parrent">
-        <button className="arrow left" onClick={handlePrev}>
+        <button className="testemonial__arrow left" onClick={handlePrev}>
           <svg
             fill="#9c522d"
             version="1.1"
@@ -120,8 +120,6 @@ export const Feedback = () => {
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
-            width="30px"
-            height="30px"
             viewBox="0 0 284.929 284.929"
             style={{ enableBackground: "new 0 0 284.929 284.929" }}
           >
@@ -182,7 +180,7 @@ export const Feedback = () => {
             ))}
           </div>
         </div>
-        <button className="arrow right" onClick={handleNext}>
+        <button className="testemonial__arrow right" onClick={handleNext}>
           <svg
             fill="#9c522d"
             version="1.1"
@@ -190,8 +188,6 @@ export const Feedback = () => {
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
             y="0px"
-            width="30px"
-            height="30px"
             viewBox="0 0 284.929 284.929"
             style={{ enableBackground: "new 0 0 284.929 284.929" }}
           >

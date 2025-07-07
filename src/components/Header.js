@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../img/logo (1).svg";
 import { Buy } from "./BuyModal";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [isVisibleHeaderNavbar, setIsVisibleHeaderNavbar] = useState(false);
@@ -21,7 +22,9 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header__flex">
-        <img className="logo" src={logo} alt="" />
+        <Link to="/">
+          <img className="logo" src={logo} alt="" />
+        </Link>
         {isPhone ? (
           <>
             <div
