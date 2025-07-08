@@ -13,7 +13,7 @@ export const VinesOrderElement = ({
     } else if (value >= 1000) {
       value = 1000;
     }
-    handleAddCountVine(vines.name, value);
+    handleAddCountVine(vines, value);
   };
   return (
     <div className="vines__order__element">

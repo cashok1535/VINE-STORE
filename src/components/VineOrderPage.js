@@ -1,14 +1,28 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { vines } from "./BuyModal";
+import { BuyContext } from "./BuyModal";
 
 export const VineOrderPage = () => {
   const [vine, setVine] = useState({});
+  const [value, setValue] = useState(1);
   const { vineName } = useParams();
+  const { handleAddCountVine, handleOrder, countAllVines } = useContext(BuyContext);
 
   useEffect(() => {
     setVine(vines.find((item) => item.name === vineName));
   }, [vineName]);
+
+  const handleInput = (event) => {
+    let inputValue = event.target.value;
+    if (inputValue <= 1) {
+      inputValue = 1;
+    } else if (inputValue >= 1000) {
+      inputValue = 1000;
+    }
+    setValue(inputValue);
+    handleAddCountVine(vine, value);
+  };
 
   return (
     <div className="shop__page">
@@ -16,7 +30,11 @@ export const VineOrderPage = () => {
       <div className="vine__order__page__flex">
         <div className="vine__order__page__flex__element">
           <div>
-            <img src={vine.img} alt="" />
+            <img
+              className="vine__order__page__flex__element__img"
+              src={vine.img}
+              alt=""
+            />
           </div>
           <button className="vine__order__page__flex__element__button">
             <img src={vine.img} alt="" />
@@ -29,11 +47,27 @@ export const VineOrderPage = () => {
             Product code {vine.productCode}
           </div>
           <div className="page__vine__price">{vine.price},00 USD</div>
+          <div className="page__vine__line"></div>
           <div className="page__vine__order">
-            <input type="number" />
-            <button className="page__vine__order__button">Add to cart</button>
+            <input
+              onChange={(e) => {
+                handleInput(e);
+              }}
+              className="vines__order__element__input page__input"
+              type="number"
+              value={value}
+            />
+            <button
+              onClick={() => {
+                handleOrder(vine);
+              }}
+              className="page__vine__order__button"
+            >
+              Add to cart
+            </button>
           </div>
-          <div className="description">Description</div>
+          <div className="description">DESCRIPTION</div>
+          <div className="description__line"></div>
           <div className="description__text">{vine.description}</div>
         </div>
       </div>

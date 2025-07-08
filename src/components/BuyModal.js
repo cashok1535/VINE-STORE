@@ -121,17 +121,19 @@ export const BuyProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (totalCount === 0) {
+    if (countAllVines.length === 0) {
       setIsOrderModalButton(false);
-    } else setIsOrderModalButton(true);
-  }, [totalCount]);
+    }
+  }, [totalCount, countAllVines]);
 
   useEffect(() => {
-    setTotalCount(
-      countAllVines.reduce((accumulator, currentObject) => {
-        return accumulator + currentObject.count;
-      }, 0)
-    );
+    if (countAllVines.length > 0) {
+      setTotalCount(
+        countAllVines.reduce((accumulator, currentObject) => {
+          return accumulator + currentObject.count;
+        }, 0)
+      );
+    } else setTotalCount(0);
   }, [countAllVines, vinesOrder]);
 
   const handleOpenModal = () => {
@@ -150,16 +152,27 @@ export const BuyProvider = ({ children }) => {
   const handleCloseModal = () => {
     setIsOrderModal(false);
   };
-  const handleAddCountVine = (name, value) => {
+
+  const handleAddCountVine = (vine, value) => {
     setCountAllVines((prev) => {
-      const nessVineIndex = prev.findIndex((item) => item.name === name);
+      const nessVineIndex = prev.findIndex((item) => item.name === vine.name);
       if (nessVineIndex !== -1) {
         return prev.map((el, index) => {
           return index === nessVineIndex
             ? { ...el, count: parseInt(value) }
             : el;
         });
-      } else return prev;
+      } else if (nessVineIndex === -1) {
+        return [
+          {
+            count: value + 1,
+            currency: null,
+            img: vine.img,
+            name: vine.name,
+            price: vine.price,
+          },
+        ];
+      }
     });
   };
 
