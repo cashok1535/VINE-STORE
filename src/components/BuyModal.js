@@ -9,6 +9,10 @@ export const vines = [
     img: redVine,
     name: "Cabarnet",
     price: 17,
+    inStock: "In stock",
+    productCode: 18,
+    description:
+      "If you don't want which red wine to buy, think of this Cabernet. It has a very deep dark purple color and opens with boysenberry, bourbon, and vanilla aromas. Then you'll feel brown sugar, cocoa, spices, and currants. It's a wine with a really rich taste.",
   },
   {
     id: 2,
@@ -16,6 +20,10 @@ export const vines = [
     img: whiteVine,
     name: "Sauvignon Blanc",
     price: 12,
+    inStock: "In stock",
+    productCode: 22,
+    description:
+      "Light yet unique in character, this Sauvignon Blanc by CaliWines is filled with aromas of apple, grapefruit, gooseberry, and guava. This wine is light bodied with a fresh finish and a light yellow color.",
   },
   {
     id: 3,
@@ -23,6 +31,10 @@ export const vines = [
     img: redVine,
     name: "Syrah",
     price: 13,
+    inStock: "In stock",
+    productCode: 19,
+    description:
+      "This intense wine has aromas of violets, red fruit, cherry, blackberry, and vanilla. It also features rich flavors of blackberry, black cherry, plum, and vanilla with silky tannins and a rich finish.",
   },
   {
     id: 4,
@@ -30,6 +42,10 @@ export const vines = [
     img: whiteVine,
     name: "Pinot Grigio",
     price: 10,
+    inStock: "In stock",
+    productCode: 23,
+    description:
+      "Bright golden color. Gentle aromas and flavors of peach cobbler, honeydew, and apple with a silky, fruity-yet-dry medium body, and lemon and nut in the finish.",
   },
   {
     id: 5,
@@ -37,6 +53,8 @@ export const vines = [
     img: redVine,
     name: "Cabarnet",
     price: 17,
+    inStock: "In stock",
+    productCode: 18,
   },
   {
     id: 6,
@@ -44,6 +62,8 @@ export const vines = [
     img: whiteVine,
     name: "Sauvignon Blanc",
     price: 12,
+    inStock: "In stock",
+    productCode: 22,
   },
   {
     id: 7,
@@ -51,6 +71,8 @@ export const vines = [
     img: redVine,
     name: "Syrah",
     price: 13,
+    inStock: "In stock",
+    productCode: 19,
   },
 ];
 

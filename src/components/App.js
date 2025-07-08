@@ -12,13 +12,13 @@ function App() {
     <div className="App">
       <BuyProvider>
         <Header />
+        <OrderButton />
+        <VineOrderModal />
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <OrderButton />
-                <VineOrderModal />
                 <Main />
               </>
             }

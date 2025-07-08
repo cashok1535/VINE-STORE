@@ -76,7 +76,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover>svg {
+.href__social:hover > svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -92,7 +92,7 @@ a:hover {
 
 .header__absolute {
   position: absolute;
-  top: -105px;
+  top: -110px;
   width: 100%;
   height: 1976px;
   z-index: -1;
@@ -258,7 +258,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover>a {
+.learn__button:hover > a {
   color: #000 !important;
 }
 
@@ -1587,7 +1587,8 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover
+  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1884,9 +1885,6 @@ a:hover {
   cursor: pointer;
 }
 
-
-
-
 .footer__bottom {
   width: 100%;
   height: 62px;
@@ -1919,12 +1917,32 @@ a:hover {
   border: none;
   outline: none;
   z-index: 4;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
   position: absolute;
 }
 
 .footer__arrow:hover {
   opacity: 1;
+}
+
+.shop__page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+
+.vine__order__page__flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.shop__page__title {
+  font-family: "Rubik_Regular", sans-serif;
+  font-size: 16px;
+  color: #1f1917;
 }
 
 @media (max-width: 992px) {
