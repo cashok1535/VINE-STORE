@@ -336,7 +336,7 @@ export const OrderButton = () => {
   useEffect(() => {
     setButtonOrderCount((prev) => {
       if (totalCount <= 9) {
-        return totalCount;
+        return Number(totalCount);
       } else if (totalCount > 9) {
         return "9+";
       } else return prev;

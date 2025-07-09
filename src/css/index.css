@@ -24,7 +24,7 @@ a:hover {
   font-size: 14px;
 }
 
-.header.black{
+.header.black {
   background: #000;
 }
 
@@ -80,7 +80,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover > svg {
+.href__social:hover>svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -262,7 +262,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover > a {
+.learn__button:hover>a {
   color: #000 !important;
 }
 
@@ -1592,8 +1592,7 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover
-  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1923,7 +1922,6 @@ a:hover {
   outline: none;
   z-index: 4;
   transition: opacity 0.2s;
-  position: absolute;
 }
 
 .footer__arrow:hover {
@@ -1940,9 +1938,50 @@ a:hover {
 .vine__order__page__flex__element {
   display: flex;
   flex-direction: column;
-  padding: 0 15px;
   box-sizing: border-box;
 }
+
+.vine__order__page__flex__element__slider {
+  max-width: 570px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page__slider__button {
+  height: 100%;
+  width: 71.25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s;
+  filter: blur(1px)
+}
+
+.right__button {
+  transform: translateX(72px);
+  z-index: -1;
+}
+
+.left__button {
+  transform: translateX(-72px);
+  z-index: -1;
+}
+
+.vine__order__page__flex__element__slider:hover>.right__button,
+.vine__order__page__flex__element__slider:hover>.left__button {
+  transform: translate(0px);
+  filter: blur(0)
+}
+
+.right__arrow {
+  transform: rotate(180deg);
+}
+
 .vine__order__page__flex__element__img {
   max-width: 400px;
   width: 100%;
@@ -1951,8 +1990,7 @@ a:hover {
 
 .vine__order__page__flex {
   display: flex;
-  justify-content: center;
-  /* align-items: center; */
+  justify-content: space-between;
   margin-top: 50px;
 }
 
@@ -1966,6 +2004,8 @@ a:hover {
 .vine__order__page__flex__element__button img {
   width: 102.39px;
   height: 102.39px;
+  cursor: pointer;
+  border: none;
 }
 
 .vine__order__page__flex__element__img {
@@ -1974,9 +2014,6 @@ a:hover {
   height: auto;
 }
 
-.vine__order__page__flex__element {
-  padding: 0 15px;
-}
 
 .vine__isStock__text {
   font-family: "Rubik_Regular", sans-serif;
@@ -2273,6 +2310,10 @@ a:hover {
   .footer__left {
     position: absolute;
     left: -15px;
+  }
+
+  .parrent__footer__slider{
+    justify-content: center;
   }
 
   .vines__order__element__input {

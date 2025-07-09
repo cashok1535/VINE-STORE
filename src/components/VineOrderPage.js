@@ -7,7 +7,7 @@ export const VineOrderPage = () => {
   const [vine, setVine] = useState({});
   const [value, setValue] = useState(1);
   const { vineName } = useParams();
-  const { handleAddCountVine, handleOrderFromShop, handleLinkOpen, allVine } =
+  const { handleOrderFromShop, handleLinkOpen, allVine } =
     useContext(BuyContext);
   const { pathname } = useLocation();
 
@@ -20,7 +20,10 @@ export const VineOrderPage = () => {
   }, [pathname]);
 
   useEffect(() => {
-    setVine(allVine.find((item) => item.name === vineName));
+    const decodedVineName = decodeURIComponent(vineName);
+    if (allVine) {
+      setVine(allVine.find((item) => item.name === decodedVineName));
+    }
   }, [vineName, allVine]);
 
   const handleInput = (event) => {
@@ -31,26 +34,58 @@ export const VineOrderPage = () => {
       inputValue = 1000;
     }
     setValue(inputValue);
-    handleAddCountVine(vine, value); ///
   };
-
   return (
     <div className="shop__page">
       <div className="shop__page__title">Store homepage</div>
       <div className="vine__order__page__flex">
         <div className="vine__order__page__flex__element">
-          <div>
+          <div className="vine__order__page__flex__element__slider">
+            <button className="page__slider__button left__button">
+              <svg
+                width="14"
+                height="26"
+                viewBox="0 0 14 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.5 2L1.5 13L12.5 24"
+                  stroke="#464C5C"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+            </button>
             <img
               className="vine__order__page__flex__element__img"
               src={vine.img}
               alt=""
             />
+            <button className="page__slider__button right__button">
+              <svg
+                className="right__arrow"
+                width="14"
+                height="26"
+                viewBox="0 0 14 26"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12.5 2L1.5 13L12.5 24"
+                  stroke="#464C5C"
+                  stroke-width="2"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+            </button>
           </div>
           <button className="vine__order__page__flex__element__button">
             <img src={vine.img} alt="" />
           </button>
         </div>
-
         <div className="vine__order__page__flex__element">
           <div className="vine__isStock__text">{vine.inStock}</div>
           <div className="page__vine__name">{vine.name}</div>

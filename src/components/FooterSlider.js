@@ -55,24 +55,12 @@ export const FooterSlider = ({ img, scaleCount, wrapperSize }) => {
 
   useEffect(() => {
     if (isDragging) {
-      document.addEventListener("touchstart", handleMouseDown, {
-        passive: false,
-      });
       document.addEventListener("mousemove", handleMouseMove);
-      document.addEventListener("touchmove", handleMouseMove, {
-        passive: false,
-      });
       document.addEventListener("mouseup", handleMouseUp);
-      document.addEventListener("touchend", handleMouseUp);
     }
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("touchmove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
-      document.removeEventListener("touchend", handleMouseUp);
-      document.removeEventListener("touchstart", handleMouseDown, {
-        passive: false,
-      });
     };
   }, [isDragging, handleMouseMove, handleMouseUp, handleMouseDown]);
 
@@ -81,7 +69,7 @@ export const FooterSlider = ({ img, scaleCount, wrapperSize }) => {
       ref={imageRef}
       src={img}
       alt=""
-      className="footer__flex__element"
+      className="footer__flex__element footer__slider__img"
       onMouseDown={handleMouseDown}
       style={{
         top: position.y,
