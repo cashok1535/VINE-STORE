@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import logo from "../img/logo (1).svg";
-import { Buy } from "./BuyModal";
+
 import { Link } from "react-router-dom";
+import { BuyContext } from "./BuyModal";
 
 export const Header = () => {
   const [isVisibleHeaderNavbar, setIsVisibleHeaderNavbar] = useState(false);
-  const { isPhone } = Buy();
+  const { isPhone, isHeaderBlack } = useContext(BuyContext);
   useEffect(() => {
     document.body.style.overflow = isVisibleHeaderNavbar ? "hidden" : "auto";
     return () => {
@@ -20,7 +21,7 @@ export const Header = () => {
     document.body.style.overflow = "auto";
   };
   return (
-    <header className="header">
+    <header className={`header ${isHeaderBlack ? "black" : ""}`}>
       <div className="header__flex">
         <Link to="/">
           <img className="logo" src={logo} alt="" />

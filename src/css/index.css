@@ -24,6 +24,10 @@ a:hover {
   font-size: 14px;
 }
 
+.header.black{
+  background: #000;
+}
+
 .logo {
   width: 176.39px;
 }
@@ -76,7 +80,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover>svg {
+.href__social:hover > svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -258,7 +262,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover>a {
+.learn__button:hover > a {
   color: #000 !important;
 }
 
@@ -659,6 +663,7 @@ a:hover {
 .vine__order__modal {
   width: 100%;
   position: fixed;
+  top: 0;
   background-color: #000000b3;
   z-index: 4;
   height: 100vh;
@@ -1587,7 +1592,8 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover
+  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1943,8 +1949,6 @@ a:hover {
   height: auto;
 }
 
-
-
 .vine__order__page__flex {
   display: flex;
   justify-content: center;
@@ -1958,7 +1962,8 @@ a:hover {
   color: #1f1917;
 }
 
-.vine__order__page__flex__element__button, .vine__order__page__flex__element__button img {
+.vine__order__page__flex__element__button,
+.vine__order__page__flex__element__button img {
   width: 102.39px;
   height: 102.39px;
 }
@@ -2055,6 +2060,10 @@ a:hover {
   line-height: 1.6;
   max-width: 570px;
   width: 100%;
+}
+
+.link:hover {
+  text-decoration: none;
 }
 
 @media (max-width: 992px) {

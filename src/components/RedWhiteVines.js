@@ -1,36 +1,8 @@
-import black from "../img/black.jpeg";
-import green from "../img/green.jpeg";
-import blue from "../img/blue.jpeg";
-import purple from "../img/purple.jpeg";
 import { useContext } from "react";
 import { BuyContext } from "./BuyModal";
+import { Link } from "react-router-dom";
+import { redWhitevines } from "./BuyModal";
 
-const vines = [
-  {
-    id: 1,
-    img: black,
-    name: "Pinot Noir",
-    price: 12,
-  },
-  {
-    id: 2,
-    img: green,
-    name: "Riesling",
-    price: 16,
-  },
-  {
-    id: 3,
-    img: blue,
-    name: "Zifandel",
-    price: 14,
-  },
-  {
-    id: 4,
-    img: purple,
-    name: "Soave",
-    price: 12,
-  },
-];
 
 export const RedWhiteVines = () => {
   const { handleOrder } = useContext(BuyContext);
@@ -97,16 +69,18 @@ export const RedWhiteVines = () => {
         Select your favorite wine and buy it in a couple of clicks.
       </div>
       <div className="red__white__vines__flex">
-        {vines.map((vine) => (
+        {redWhitevines.map((vine) => (
           <div key={vine.id}>
             <div className="red__white__vines__flex__element">
-              <img
-                className="red__white__vines__flex__element__img"
-                src={vine.img}
-                alt=""
-              />
-              <div className="vine__name">{vine.name}</div>
-              <div className="vine__price">{vine.price},00USD</div>
+              <Link className="link" to={`shop/${vine.name}`}>
+                <img
+                  className="red__white__vines__flex__element__img"
+                  src={vine.img}
+                  alt=""
+                />
+                <div className="vine__name">{vine.name}</div>
+                <div className="vine__price">{vine.price},00USD</div>
+              </Link>
               <button
                 onClick={() => {
                   handleOrderVine(vine);

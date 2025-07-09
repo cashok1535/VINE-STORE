@@ -14,8 +14,15 @@ import { Blog } from "./Blog";
 import { FAQ } from "./FAQ";
 import { WhatWeDo } from "./WhatWeDo";
 import { Contact } from "./Contact";
+import { useContext, useEffect } from "react";
+import { BuyContext } from "./BuyModal";
 
 export const Main = () => {
+  const { handleLinkClose } = useContext(BuyContext);
+
+  useEffect(() => {
+    handleLinkClose();
+  }, [handleLinkClose]);
   return (
     <main className="main">
       <MainTopStiky />

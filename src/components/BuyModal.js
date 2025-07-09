@@ -1,6 +1,10 @@
 import { createContext, useContext, useEffect, useState, useRef } from "react";
 import whiteVine from "../img/whiteVine.jpeg";
 import redVine from "../img/redVine.jpeg";
+import black from "../img/black.jpeg";
+import green from "../img/green.jpeg";
+import blue from "../img/blue.jpeg";
+import purple from "../img/purple.jpeg";
 
 export const vines = [
   {
@@ -76,18 +80,64 @@ export const vines = [
   },
 ];
 
+export const redWhitevines = [
+  {
+    id: 1,
+    img: black,
+    name: "Pinot Noir",
+    price: 12,
+    inStock: "In stock",
+    productCode: 20,
+    description: `It is one of the lightest red wines. Pinot Noir is easy to drink, it won't punch you in the face like some reds can and is perfect for romantic evenings and meetings with friends. Our Pinot Noir has a "light body" and feels silky to the tongue. You might taste bright berries like raspberry and cranberry.`,
+  },
+  {
+    id: 2,
+    img: green,
+    name: "Riesling",
+    price: 16,
+    inStock: "In stock",
+    productCode: 24,
+    description: `Dazzling silver-gold in color, with intense mineral aromas of shale, gravel, and limestone, combined with notes of white flower, green apple, peach, and lemon oil. You can smell the flavors of fresh apricot, lime, and grapefruit pith.`,
+  },
+  {
+    id: 3,
+    img: blue,
+    name: "Zifandel",
+    price: 14,
+    inStock: "In stock",
+    productCode: 21,
+    description: `This wine is produced from more ripened berries than usual. Core flavors are rich, with jammy blackberries and mocha. You can pair this wine with braised ribs, chicken enchiladas, or dark chocolate.`,
+  },
+  {
+    id: 4,
+    img: purple,
+    name: "Soave",
+    price: 12,
+    inStock: "In stock",
+    productCode: 25,
+    description: `Our Californian tribute to Italian wine varieties.
+
+Light straw color. Delicate and gentle aroma of sweet field flowers: camomile, elder, and iris. Minced palate with almond aftertaste. Pairs with steamed fish, fresh cheese, and mussels.`,
+  },
+];
+
 export const BuyContext = createContext();
 
 export const BuyProvider = ({ children }) => {
-  const [vinesOrder, setVinesOrder] = useState([]);
   const [isOrderModalButton, setIsOrderModalButton] = useState(false);
   const [isOrderModal, setIsOrderModal] = useState(false);
   const [countAllVines, setCountAllVines] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [isDiscount, setIsDiscount] = useState();
   const [isPhone, setIsPhone] = useState(false);
+  const [isHeaderBlack, setIsHeaderBlack] = useState(false);
   const [wrapperWidth, setWrapperWidth] = useState(null);
+  const [allVine, setAllVine] = useState();
   const bodyRef = useRef(document.body);
+
+  useEffect(() => {
+    setAllVine([...vines, ...redWhitevines]);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -134,7 +184,7 @@ export const BuyProvider = ({ children }) => {
         }, 0)
       );
     } else setTotalCount(0);
-  }, [countAllVines, vinesOrder]);
+  }, [countAllVines]);
 
   const handleOpenModal = () => {
     setIsOrderModal(true);
@@ -162,23 +212,12 @@ export const BuyProvider = ({ children }) => {
             ? { ...el, count: parseInt(value) }
             : el;
         });
-      } else if (nessVineIndex === -1) {
-        return [
-          {
-            count: value + 1,
-            currency: null,
-            img: vine.img,
-            name: vine.name,
-            price: vine.price,
-          },
-        ];
-      }
+      } else return prev;
     });
   };
 
   const handleOrder = (vine) => {
     setIsOrderModalButton(true);
-    setVinesOrder((prev) => (prev.includes(vine) ? prev : [...prev, vine]));
     setCountAllVines((prev) => {
       const existingVineIndex = prev.findIndex((el) => el.name === vine.name);
       if (existingVineIndex !== -1) {
@@ -215,6 +254,33 @@ export const BuyProvider = ({ children }) => {
     });
   };
 
+  const handleOrderFromShop = (vine, count) => {
+    setIsOrderModalButton(true);
+    setCountAllVines((prev) => {
+      const isNecessaryVine = prev.findIndex((item) => item.name === vine.name);
+      if (isNecessaryVine !== -1) {
+        return prev.map((el) => {
+          return el.name === vine.name
+            ? {
+                ...el,
+                count: Number(el.count) + Number(count),
+              }
+            : el;
+        });
+      } else {
+        return [
+          {
+            img: vine.img,
+            name: vine.name,
+            price: vine.price,
+            currency: vine.currency,
+            count: count,
+          },
+        ];
+      }
+    });
+  };
+
   const handleDiscount = (promo, isDiscountAtive) => {
     setCountAllVines((prev) => {
       return promo
@@ -226,11 +292,17 @@ export const BuyProvider = ({ children }) => {
     setIsDiscount(!isDiscountAtive);
   };
 
+  const handleLinkOpen = () => {
+    setIsHeaderBlack(true);
+  };
+  const handleLinkClose = () => {
+    setIsHeaderBlack(false);
+  };
+
   return (
     <BuyContext.Provider
       value={{
         isOrderModalButton,
-        vinesOrder,
         handleOrder,
         handleOpenModal,
         isOrderModal,
@@ -242,6 +314,11 @@ export const BuyProvider = ({ children }) => {
         handleDiscount,
         phone,
         isPhone,
+        isHeaderBlack,
+        handleLinkOpen,
+        handleLinkClose,
+        handleOrderFromShop,
+        allVine,
       }}
     >
       {children}

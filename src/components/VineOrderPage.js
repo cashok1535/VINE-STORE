@@ -1,17 +1,27 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import { vines } from "./BuyModal";
 import { BuyContext } from "./BuyModal";
+import { useLocation } from "react-router-dom";
 
 export const VineOrderPage = () => {
   const [vine, setVine] = useState({});
   const [value, setValue] = useState(1);
   const { vineName } = useParams();
-  const { handleAddCountVine, handleOrder, countAllVines } = useContext(BuyContext);
+  const { handleAddCountVine, handleOrderFromShop, handleLinkOpen, allVine } =
+    useContext(BuyContext);
+  const { pathname } = useLocation();
 
   useEffect(() => {
-    setVine(vines.find((item) => item.name === vineName));
-  }, [vineName]);
+    handleLinkOpen();
+  }, [handleLinkOpen]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  useEffect(() => {
+    setVine(allVine.find((item) => item.name === vineName));
+  }, [vineName, allVine]);
 
   const handleInput = (event) => {
     let inputValue = event.target.value;
@@ -21,7 +31,7 @@ export const VineOrderPage = () => {
       inputValue = 1000;
     }
     setValue(inputValue);
-    handleAddCountVine(vine, value);
+    handleAddCountVine(vine, value); ///
   };
 
   return (
@@ -60,7 +70,7 @@ export const VineOrderPage = () => {
             />
             <button
               onClick={() => {
-                handleOrder(vine);
+                handleOrderFromShop(vine, value);
               }}
               className="page__vine__order__button"
             >
