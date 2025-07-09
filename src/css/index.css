@@ -1926,9 +1926,24 @@ a:hover {
 
 .shop__page {
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  padding-top: 100px;
+  padding: 100px 0;
 }
+
+.vine__order__page__flex__element {
+  display: flex;
+  flex-direction: column;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+.vine__order__page__flex__element__img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+}
+
+
 
 .vine__order__page__flex {
   display: flex;

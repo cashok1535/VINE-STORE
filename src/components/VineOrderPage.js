@@ -40,6 +40,7 @@ export const VineOrderPage = () => {
             <img src={vine.img} alt="" />
           </button>
         </div>
+
         <div className="vine__order__page__flex__element">
           <div className="vine__isStock__text">{vine.inStock}</div>
           <div className="page__vine__name">{vine.name}</div>
