@@ -6,7 +6,7 @@ import { BuyContext } from "./BuyModal";
 export const BlogPage = () => {
   const [blog, setBlog] = useState({});
   const { blogTitle } = useParams();
-  const { handleLinkOpen } = useContext(BuyContext);
+  const { handleLinkOpen, handleCloseModal } = useContext(BuyContext);
 
   useEffect(() => {
     if (blogs) {
@@ -15,6 +15,12 @@ export const BlogPage = () => {
       setBlog(currentBlog);
     }
   }, [blogTitle]);
+
+  useEffect(() => {
+    return () => {
+      handleCloseModal();
+    };
+  }, [handleCloseModal]);
 
   useEffect(() => {
     handleLinkOpen();

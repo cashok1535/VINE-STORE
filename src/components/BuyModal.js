@@ -208,7 +208,7 @@ export const BuyProvider = ({ children }) => {
     });
   };
   const handleCloseModal = () => {
-    setIsOrderModal(false);
+    setIsOrderModal(false);   
   };
 
   const handleAddCountVine = (vine, value) => {

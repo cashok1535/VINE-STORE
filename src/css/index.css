@@ -80,7 +80,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover > svg {
+.href__social:hover>svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -262,7 +262,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover > a {
+.learn__button:hover>a {
   color: #000 !important;
 }
 
@@ -559,6 +559,7 @@ a:hover {
   position: relative;
   left: -2px;
 }
+
 .arrow.left {
   position: relative;
   left: 2px;
@@ -1596,8 +1597,7 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover
-  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1978,8 +1978,8 @@ a:hover {
   z-index: -1;
 }
 
-.vine__order__page__flex__element__slider:hover > .right__button,
-.vine__order__page__flex__element__slider:hover > .left__button {
+.vine__order__page__flex__element__slider:hover>.right__button,
+.vine__order__page__flex__element__slider:hover>.left__button {
   transform: translate(0px);
   filter: blur(0);
 }
@@ -2166,10 +2166,61 @@ a:hover {
   line-height: 1.6;
 }
 
+.vine__shop {
+  padding: 100px 0;
+  margin: 0 auto;
+  max-width: 1170px;
+  width: 100%;
+}
+
+.vine__shop__title {
+  font-family: "Prata", serif;
+  font-size: 32px;
+  margin-bottom: 90px;
+}
+
+.vine__shop__second__title {
+  margin-bottom: 40px;
+}
+
 .vine__shop__grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 0 15px;
+  box-sizing: border-box;
+  row-gap: 25px;
 }
+
+.vine__shop__img {
+  width: 100%;
+  max-width: 262px;
+}
+
+.vine__shop__name {
+  font-family: "Rubik_Regular", sans-serif;
+  font-size: 20px;
+  margin-top: 24px;
+  color: #261e1c !important;
+}
+
+.vine__shop__price {
+  font-family: "Rubik_SemiBold", sans-serif;
+  font-size: 20px;
+  color: #c8693a;
+  margin-top: 16px;
+}
+
+.vine__shop__button {
+  font-family: "Rubik_Regular", sans-serif;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  padding: 16px 25px;
+  background-color: #c8693a;
+  margin-top: 24px;
+}
+
 
 @media (max-width: 992px) {
   .boutique__wines__flex__left {

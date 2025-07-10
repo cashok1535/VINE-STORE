@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Buy } from "./BuyModal";
 
 export const VinesOrderElement = ({
@@ -5,7 +6,7 @@ export const VinesOrderElement = ({
   handleAddCountVine,
   handleRemoveOrder,
 }) => {
-  const { isPhone } = Buy();
+  const { isPhone, handleCloseModal } = Buy();
   const handleInput = (event) => {
     let value = event.target.value;
     if (value <= 1) {
@@ -23,9 +24,13 @@ export const VinesOrderElement = ({
           <div className="vines__order__element__info">
             <div className="vine__order__element__info__phone">
               <div className="vines__order__element__name">
-                <a href="#123" className="vines__order__element__link">
+                <Link
+                  onClick={handleCloseModal}
+                  to={`${vines.name}`}
+                  className="vines__order__element__link"
+                >
                   {vines.name}
-                </a>
+                </Link>
               </div>
               <div className="vines__order__element__price">
                 {parseFloat(vines.price * vines.count)
@@ -46,9 +51,13 @@ export const VinesOrderElement = ({
         ) : (
           <div className="vines__order__element__info">
             <div className="vines__order__element__name">
-              <a href="#123" className="vines__order__element__link">
+              <Link
+                onClick={handleCloseModal}
+                to={`/shop/${vines.name}`}
+                className="vines__order__element__link"
+              >
                 {vines.name}
-              </a>
+              </Link>
             </div>
             <input
               className="vines__order__element__input"
