@@ -6,6 +6,8 @@ import { VineOrderModal } from "./VineOrderModal";
 import { Footer } from "./Footer";
 import { Routes, Route } from "react-router";
 import { VineOrderPage } from "./VineOrderPage";
+import { BlogPage } from "./BlogPage";
+import { Shop } from "./Shop";
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
               </>
             }
           />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/shop/:vineName" element={<VineOrderPage />} />
+          <Route path="/blog/:blogTitle" element={<BlogPage />} />
         </Routes>
         <Footer />
       </BuyProvider>

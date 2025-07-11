@@ -8,6 +8,7 @@ import purple from "../img/purple.jpeg";
 
 export const vines = [
   {
+    shopId: 1,
     id: 1,
     subId: 1,
     img: redVine,
@@ -19,6 +20,7 @@ export const vines = [
       "If you don't want which red wine to buy, think of this Cabernet. It has a very deep dark purple color and opens with boysenberry, bourbon, and vanilla aromas. Then you'll feel brown sugar, cocoa, spices, and currants. It's a wine with a really rich taste.",
   },
   {
+    shopId: 2,
     id: 2,
     subId: 2,
     img: whiteVine,
@@ -30,6 +32,7 @@ export const vines = [
       "Light yet unique in character, this Sauvignon Blanc by CaliWines is filled with aromas of apple, grapefruit, gooseberry, and guava. This wine is light bodied with a fresh finish and a light yellow color.",
   },
   {
+    shopId: 3,
     id: 3,
     subId: 3,
     img: redVine,
@@ -41,6 +44,7 @@ export const vines = [
       "This intense wine has aromas of violets, red fruit, cherry, blackberry, and vanilla. It also features rich flavors of blackberry, black cherry, plum, and vanilla with silky tannins and a rich finish.",
   },
   {
+    shopId: 4,
     id: 4,
     subId: 4,
     img: whiteVine,
@@ -82,6 +86,7 @@ export const vines = [
 
 export const redWhitevines = [
   {
+    shopId: 5,
     id: 1,
     img: black,
     name: "Pinot Noir",
@@ -91,6 +96,7 @@ export const redWhitevines = [
     description: `It is one of the lightest red wines. Pinot Noir is easy to drink, it won't punch you in the face like some reds can and is perfect for romantic evenings and meetings with friends. Our Pinot Noir has a "light body" and feels silky to the tongue. You might taste bright berries like raspberry and cranberry.`,
   },
   {
+    shopId: 6,
     id: 2,
     img: green,
     name: "Riesling",
@@ -100,6 +106,7 @@ export const redWhitevines = [
     description: `Dazzling silver-gold in color, with intense mineral aromas of shale, gravel, and limestone, combined with notes of white flower, green apple, peach, and lemon oil. You can smell the flavors of fresh apricot, lime, and grapefruit pith.`,
   },
   {
+    shopId: 7,
     id: 3,
     img: blue,
     name: "Zifandel",
@@ -109,6 +116,7 @@ export const redWhitevines = [
     description: `This wine is produced from more ripened berries than usual. Core flavors are rich, with jammy blackberries and mocha. You can pair this wine with braised ribs, chicken enchiladas, or dark chocolate.`,
   },
   {
+    shopId: 8,
     id: 4,
     img: purple,
     name: "Soave",

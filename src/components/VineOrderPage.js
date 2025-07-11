@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
 import { BuyContext } from "./BuyModal";
 import { useLocation } from "react-router-dom";
@@ -37,7 +37,9 @@ export const VineOrderPage = () => {
   };
   return (
     <div className="shop__page">
-      <div className="shop__page__title">Store homepage</div>
+      <Link to="/shop" className="link">
+        <div className="shop__page__title">Store homepage</div>
+      </Link>
       <div className="vine__order__page__flex">
         <div className="vine__order__page__flex__element">
           <div className="vine__order__page__flex__element__slider">
@@ -52,9 +54,9 @@ export const VineOrderPage = () => {
                 <path
                   d="M12.5 2L1.5 13L12.5 24"
                   stroke="#464C5C"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeMiterlimit="10"
+                  strokeLinecap="square"
                 ></path>
               </svg>
             </button>
@@ -75,9 +77,9 @@ export const VineOrderPage = () => {
                 <path
                   d="M12.5 2L1.5 13L12.5 24"
                   stroke="#464C5C"
-                  stroke-width="2"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
+                  strokeWidth="2"
+                  strokeMiterlimit="10"
+                  strokeLinecap="square"
                 ></path>
               </svg>
             </button>

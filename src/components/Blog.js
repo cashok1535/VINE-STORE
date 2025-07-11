@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import blogFlexFirst from "../img/blogFlexFirst.png";
 import blogFlexSecond from "../img/blogFlexSecond.png";
 import blogFlexThird from "../img/blogFlexThird.png";
+import { Link } from "react-router-dom";
 
-const blogs = [
+export const blogs = [
   {
     id: 1,
     img: blogFlexFirst,
@@ -15,14 +16,14 @@ const blogs = [
     id: 2,
     img: blogFlexSecond,
     data: "1 Feb 2022",
-    title: "How Is Wine Rated?",
+    title: "Grapes for Wiinemaking",
     text: "The most important thing in wine production is the quality of the grapes. Without this, it is impossible to make good wine. Therefore, there are a number of requirements for growing grapes to meet the requirements for winemaking. Vintage wine cannot be made from grapes without prior selection, low-quality berries can ruin the whole taste. Special grape varieties are used for winemaking. They can be either red or white, depending on what kind of wine they plan to make from it. The grapes must be fully ripe, and they must be cut off strictly at a certain time so that they do not overripe. Not all berries are suitable for making wine. For vintage wines, not only bunches are selected but also each berry. The berry should be large and fleshy. It must not be damaged in any way. Unripe or overripe berries are unacceptable.",
   },
   {
     id: 3,
     img: blogFlexThird,
     data: "26 Jan 2022",
-    title: "How Is Wine Rated?",
+    title: "Wine Snacks",
     text: "Drinking wine is a whole art. However, to not spoil the taste, you need to select snacks carefully. It should be noted that different dishes are suitable for red and white wine. With dry red wine, everything is relatively simple. First of all, meat dishes are suitable - poultry, veal, etc. Mediterranean cuisine is also a good choice. For red semi-sweet wines, poultry (for example, chicken or turkey) is better. Fatty fish or shrimps with sauce are also good options. Sweet wines are best served with fruit, nuts, or sweets. Sturgeons will work as well. As for white wine, seafood and fish are good options for dry varieties. Semi-sweet wine is best served with various types of cheese or low-fat sausages. Floury desserts are also a good choice. White sweet wine is ideal for desserts. For example, eclairs or some types of cakes suit well.",
   },
 ];
@@ -96,12 +97,14 @@ export const Blog = () => {
       <div className="blog__flex">
         {blogTextAbbreviated.map((el) => (
           <div key={el.id} className="blog__flex__element">
-            <div className="blog__flex__element__img">
-              <img src={el.img} alt="" />
-            </div>
-            <div className="blog__flex__element__date">{el.data}</div>
-            <div className="blog__flex__element__title">{el.title}</div>
-            <div className="blog__flex__element__text">{el.text}</div>
+            <Link className="link" to={`/blog/${el.title}`}>
+              <div className="blog__flex__element__img">
+                <img src={el.img} alt="" />
+              </div>
+              <div className="blog__flex__element__date">{el.data}</div>
+              <div className="blog__flex__element__title">{el.title}</div>
+              <div className="blog__flex__element__text">{el.text}</div>
+            </Link>
           </div>
         ))}
       </div>
