@@ -6,6 +6,7 @@ import footerGridFive from "../img/footerGridFive.webp";
 import footerGridSix from "../img/footerGridSix.webp";
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { FooterSlider } from "./FooterSlider";
+import { HashLink as Link } from "react-router-hash-link";
 const images = [
   {
     id: 1,
@@ -306,34 +307,34 @@ export const Footer = () => {
         <div className="footer__flex__element">
           <div className="footer__flex__element__title">Information</div>
           <div className="what__we__do__flex__line"></div>
-          <a className="footer__link" href="#history__vine">
+          <Link className="footer__link" to="/#history__vine">
             History
-          </a>
-          <a className="footer__link" href="#aboutUs">
+          </Link>
+          <Link className="footer__link" to="/#aboutUs">
             About Us
-          </a>
-          <a className="footer__link" href="#awards">
+          </Link>
+          <Link className="footer__link" to="/#awards">
             Awards
-          </a>
-          <a className="footer__link" href="#FAQ">
+          </Link>
+          <Link className="footer__link" to="/#FAQ">
             FAQ
-          </a>
+          </Link>
         </div>
         <div className="footer__flex__element">
           <div className="footer__flex__element__title">Shop</div>
           <div className="what__we__do__flex__line"></div>
-          <a className="footer__link" href="#best__deals">
+          <Link className="footer__link" to="/#best__deals">
             Best Deals
-          </a>
-          <a className="footer__link" href="#shop__vines">
+          </Link>
+          <Link className="footer__link" to="/#shop__vines">
             All Wines
-          </a>
-          <a className="footer__link" href="#123">
+          </Link>
+          <Link className="footer__link" to="/">
             Delivery Information
-          </a>
-          <a className="footer__link" href="#123">
+          </Link>
+          <Link className="footer__link" to="/">
             Terms & Conditions
-          </a>
+          </Link>
         </div>
         <div className="footer__flex__element">
           <div className="footer__flex__element__title">Instagram</div>

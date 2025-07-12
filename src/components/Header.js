@@ -1,8 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import logo from "../img/logo (1).svg";
-
-import { Link } from "react-router-dom";
 import { BuyContext } from "./BuyModal";
+import { HashLink as Link } from "react-router-hash-link";
 
 export const Header = () => {
   const [isVisibleHeaderNavbar, setIsVisibleHeaderNavbar] = useState(false);
@@ -91,31 +90,32 @@ export const Header = () => {
                       onClick={handleCLickHref}
                       className="header__navbar__element"
                     >
-                      <a href="#best__deals">Best Deals</a>
+                      <Link to="/#best__deals">Best Deals</Link>
                     </li>
                     <li
                       onClick={handleCLickHref}
                       className="header__navbar__element"
                     >
-                      <a href="#history__vine">History</a>
+                      <Link to="/#history__vine">History</Link>
+                    </li>
+
+                    <li
+                      onClick={handleCLickHref}
+                      className="header__navbar__element"
+                    >
+                      <Link to="/#aboutUs">About Us</Link>
                     </li>
                     <li
                       onClick={handleCLickHref}
                       className="header__navbar__element"
                     >
-                      <a href="#aboutUs">About Us</a>
+                      <Link to="/#shop__vines">Shop</Link>
                     </li>
                     <li
                       onClick={handleCLickHref}
                       className="header__navbar__element"
                     >
-                      <a href="#shop__vines">Shop</a>
-                    </li>
-                    <li
-                      onClick={handleCLickHref}
-                      className="header__navbar__element"
-                    >
-                      <a href="#contact">Contact Us</a>
+                      <Link to="/#contact">Contact Us</Link>
                     </li>
                   </ul>
                   <div className="social">
@@ -139,6 +139,7 @@ export const Header = () => {
                         />
                       </svg>
                     </a>
+
                     <a
                       className="footer__link__social"
                       href="https://www.instagram.com"
@@ -169,6 +170,7 @@ export const Header = () => {
                         </g>
                       </svg>
                     </a>
+
                     <a
                       className="footer__link__social"
                       href="https://www.youtube.com"
@@ -198,19 +200,19 @@ export const Header = () => {
           <div className="header__right">
             <ul className="header__navbar">
               <li className="header__navbar__element">
-                <a href="#best__deals">Best Deals</a>
+                <Link to="/#best__deals">Best Deals</Link>
               </li>
               <li className="header__navbar__element">
-                <a href="#history__vine">History</a>
+                <Link to="/#best__deals">History</Link>
               </li>
               <li className="header__navbar__element">
-                <a href="#aboutUs">About Us</a>
+                <Link to="/#aboutUs">About Us</Link>
               </li>
               <li className="header__navbar__element">
-                <a href="#shop__vines">Shop</a>
+                <Link to="/#shop__vines">Shop</Link>
               </li>
               <li className="header__navbar__element">
-                <a href="#contact">Contact Us</a>
+                <Link to="/#contact">Contact Us</Link>
               </li>
             </ul>
             <div className="social">

@@ -9,10 +9,9 @@ import { VineOrderPage } from "./VineOrderPage";
 import { BlogPage } from "./BlogPage";
 import { Shop } from "./Shop";
 import { VineOrderFinalPage } from "./VineOrderFinalPage";
-
+import { Not24 } from "./Not21";
 
 function App() {
-
   return (
     <div className="App">
       <BuyProvider>
@@ -32,6 +31,7 @@ function App() {
           <Route path="/shop/:vineName" element={<VineOrderPage />} />
           <Route path="/shop/order" element={<VineOrderFinalPage />} />
           <Route path="/blog/:blogTitle" element={<BlogPage />} />
+          <Route path="/not-24" element={<Not24 />} />
         </Routes>
         <Footer />
       </BuyProvider>
