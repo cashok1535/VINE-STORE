@@ -2221,6 +2221,104 @@ a:hover {
   margin-top: 24px;
 }
 
+.vine__order__final__page {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  color: #261e1c;
+  padding: 100px 0;
+}
+
+.vine__order__final__page__flex {
+  display: flex;
+  gap: 30px;
+  height: fit-content;
+}
+
+.vine__order__final__page__flex__element {
+  min-height: calc(100% + 4px);
+  border-radius: 8px;
+  border: 4px solid #261e1c1f;
+  padding: 40px 30px;
+  font-family: "Rubik_Regular", sans-serif;
+}
+
+.vine__flex__element {
+  max-width: 750px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.count__vines {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.vine__order__flex {
+  display: flex;
+  min-width: 100%;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.vine__order__flex__element {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border-bottom: 1px solid #261e1c1f;
+  height: 55px;
+  font-family: "Rubik_Regular", sans-serif;
+  font-size: 16px;
+  max-width: 710px;
+  width: 100%;
+}
+
+.vine__order__img {
+  width: 46px;
+}
+
+.vine__order__name {
+
+  text-align: start;
+  padding: 0 12px;
+  box-sizing: border-box;
+  max-width: 426px;
+  width: 100%;
+}
+
+.vine__order__count {
+  max-width: 149.5px;
+  width: 100%;
+  text-align: right;
+}
+
+.vine__order__price {
+  padding-left: 16px;
+  width: 20%;
+}
+
+.vine__order__total__price {
+  width: 100%;
+  text-align: right;
+  font-family: "Rubik_Regular", sans-serif;
+  font-size: 18px;
+  padding-top: 8px;
+}
+
+.vine__order__customer__title {
+  width: 310px;
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.vine__order__customer__text {
+  line-height: 1.6;
+}
+
+.total {
+  padding-left: 7px;
+}
 
 @media (max-width: 992px) {
   .boutique__wines__flex__left {

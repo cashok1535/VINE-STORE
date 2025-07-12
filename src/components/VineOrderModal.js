@@ -12,7 +12,7 @@ export const VineOrderModal = () => {
     handleRemoveOrder,
     handleDiscount,
     isOrderModalButton,
-    handleRemoveAllOrder,
+    handlePersonInfo,
   } = useContext(BuyContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [promoInput, setPromoInput] = useState(false);
@@ -25,21 +25,23 @@ export const VineOrderModal = () => {
     email: null,
     phone: null,
   });
-  const [formValidate, setFormValidate] = useState(
-    formError.email && formError.name && formError.phone
-  );
+
   const [orderFormInfo, setOrderFormInfo] = useState({
     name: "",
     email: "",
     phone: "",
     comment: "",
-    vines: [],
   });
   const navigate = useNavigate();
 
   useEffect(() => {
-    setFormValidate(formError.email && formError.name && formError.phone);
-  }, [formError]);
+    setOrderFormInfo({
+      name: "",
+      email: "",
+      phone: "",
+      comment: "",
+    });
+  }, []);
 
   useEffect(() => {
     setIsPromoRight(promoText === "promo");
@@ -108,9 +110,9 @@ export const VineOrderModal = () => {
       ...prev,
       name: hasErrorNameInput,
     }));
-    const isEmail =
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(orderFormInfo.email) &&
-      orderFormInfo.email.length > 0;
+    const isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
+      orderFormInfo.email.toLowerCase()
+    );
     setFormError((prev) => ({
       ...prev,
       email: !isEmail,
@@ -124,10 +126,19 @@ export const VineOrderModal = () => {
       ...prev,
       phone: isErrorPhoneInput,
     }));
-    if (formValidate) {
+    if (!hasErrorNameInput && isEmail && isNumbers) {
       navigate("/shop/order");
-      handleRemoveAllOrder();
+      handleCloseModal();
+      setTimeout(() => {
+        setOrderFormInfo({
+          name: "",
+          email: "",
+          phone: "",
+          comment: "",
+        });
+      }, 0);
     }
+    handlePersonInfo(orderFormInfo);
   };
 
   return (
@@ -269,7 +280,7 @@ export const VineOrderModal = () => {
                     className={`order__person__info__input ${
                       formError.email ? "isEmpty" : ""
                     }`}
-                    maxLength="20"
+                    maxLength="30"
                     title="Please enter your email here!"
                     required
                   />
@@ -297,6 +308,7 @@ export const VineOrderModal = () => {
                     value={orderFormInfo.comment}
                     placeholder="Your comment"
                     className="order__person__info__input order__person__comment"
+                    maxLength="100"
                   />
                   <div className="vine__button__parrent">
                     <button

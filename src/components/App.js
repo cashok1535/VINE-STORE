@@ -10,7 +10,9 @@ import { BlogPage } from "./BlogPage";
 import { Shop } from "./Shop";
 import { VineOrderFinalPage } from "./VineOrderFinalPage";
 
+
 function App() {
+
   return (
     <div className="App">
       <BuyProvider>

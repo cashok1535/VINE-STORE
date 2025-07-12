@@ -133,6 +133,7 @@ export const BuyContext = createContext();
 
 export const BuyProvider = ({ children }) => {
   const [isOrderModalButton, setIsOrderModalButton] = useState(false);
+  const [isOrderPage, setIsOrderPage] = useState(false);
   const [isOrderModal, setIsOrderModal] = useState(false);
   const [countAllVines, setCountAllVines] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -141,7 +142,16 @@ export const BuyProvider = ({ children }) => {
   const [isHeaderBlack, setIsHeaderBlack] = useState(false);
   const [wrapperWidth, setWrapperWidth] = useState(null);
   const [allVine, setAllVine] = useState();
+  const [personInfo, setPersonInfo] = useState({});
   const bodyRef = useRef(document.body);
+
+  const handlePersonInfo = (personInfo) => {
+    setPersonInfo(personInfo);
+  };
+
+  useEffect(() => {
+    setCountAllVines(countAllVines);
+  }, [countAllVines]);
 
   useEffect(() => {
     setAllVine([...vines, ...redWhitevines]);
@@ -179,10 +189,10 @@ export const BuyProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (countAllVines.length === 0) {
+    if (countAllVines.length === 0 || isOrderPage) {
       setIsOrderModalButton(false);
     }
-  }, [totalCount, countAllVines]);
+  }, [totalCount, countAllVines, isOrderPage]);
 
   useEffect(() => {
     if (countAllVines.length > 0) {
@@ -196,6 +206,8 @@ export const BuyProvider = ({ children }) => {
 
   const handleOpenModal = () => {
     setIsOrderModal(true);
+    localStorage.removeItem("vineInfo");
+    localStorage.removeItem("personInfo");
   };
 
   const handleRemoveOrder = (name) => {
@@ -206,10 +218,6 @@ export const BuyProvider = ({ children }) => {
     setCountAllVines((prev) => {
       return prev.filter((item) => item.name !== name);
     });
-  };
-
-  const handleRemoveAllOrder = () => {
-    setCountAllVines([]);
   };
   const handleCloseModal = () => {
     setIsOrderModal(false);
@@ -311,6 +319,13 @@ export const BuyProvider = ({ children }) => {
     setIsHeaderBlack(false);
   };
 
+  const handleOpenOrderPage = () => {
+    setIsOrderPage(true);
+  };
+  const handleCloseOrderPage = () => {
+    setIsOrderPage(false);
+  };
+
   return (
     <BuyContext.Provider
       value={{
@@ -331,7 +346,10 @@ export const BuyProvider = ({ children }) => {
         handleLinkClose,
         handleOrderFromShop,
         allVine,
-        handleRemoveAllOrder
+        personInfo,
+        handlePersonInfo,
+        handleOpenOrderPage,
+        handleCloseOrderPage,
       }}
     >
       {children}
