@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { VinesOrderElement } from "./VinesOrderElement";
 import { BuyContext } from "./BuyModal";
-import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 export const VineOrderModal = () => {
   const {
@@ -12,6 +12,7 @@ export const VineOrderModal = () => {
     handleRemoveOrder,
     handleDiscount,
     isOrderModalButton,
+    handleRemoveAllOrder,
   } = useContext(BuyContext);
   const [totalPrice, setTotalPrice] = useState(0);
   const [promoInput, setPromoInput] = useState(false);
@@ -20,10 +21,13 @@ export const VineOrderModal = () => {
   const [isPromoRight, setIsPromoRight] = useState(false);
   const [isActivePromo, setIsActivePromo] = useState(false);
   const [formError, setFormError] = useState({
-    name: false,
-    email: false,
-    phone: false,
+    name: null,
+    email: null,
+    phone: null,
   });
+  const [formValidate, setFormValidate] = useState(
+    formError.email && formError.name && formError.phone
+  );
   const [orderFormInfo, setOrderFormInfo] = useState({
     name: "",
     email: "",
@@ -31,7 +35,11 @@ export const VineOrderModal = () => {
     comment: "",
     vines: [],
   });
-  const { handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setFormValidate(formError.email && formError.name && formError.phone);
+  }, [formError]);
 
   useEffect(() => {
     setIsPromoRight(promoText === "promo");
@@ -76,42 +84,13 @@ export const VineOrderModal = () => {
     if (isPromoRight) {
       setIsPromoTextRight(true);
       setIsActivePromo(true);
-      handleDiscount(isPromoRight, isActivePromo); 
+      handleDiscount(isPromoRight, isActivePromo);
       setPromoText("");
       setPromoInput(false);
     } else {
       setPromoInput(true);
       setIsPromoTextRight(false);
     }
-  };
-
-  const isName = () => {
-    const hasErrorNameInput =
-      orderFormInfo.name.length === 0 || orderFormInfo.name.charAt(0) === " ";
-    setFormError((prev) => ({
-      ...prev,
-      name: hasErrorNameInput,
-    }));
-  };
-
-  const isEmail = () => {
-    const isEmail = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(orderFormInfo.email);
-    setFormError((prev) => ({
-      ...prev,
-      email: isEmail,
-    }));
-  };
-
-  const isPhone = () => {
-    const isNumbers =
-      /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(
-        orderFormInfo.phone
-      );
-    const isErrorPhoneInput = !isNumbers;
-    setFormError((prev) => ({
-      ...prev,
-      phone: isErrorPhoneInput,
-    }));
   };
 
   const onChangeInput = (nameInput, event) => {
@@ -121,11 +100,34 @@ export const VineOrderModal = () => {
     }));
   };
 
-  const formSubmit = (event) => {
-    event.preventDefault();
-    isName();
-    isEmail();
-    isPhone();
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const hasErrorNameInput =
+      orderFormInfo.name.length === 0 || orderFormInfo.name.charAt(0) === " ";
+    setFormError((prev) => ({
+      ...prev,
+      name: hasErrorNameInput,
+    }));
+    const isEmail =
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(orderFormInfo.email) &&
+      orderFormInfo.email.length > 0;
+    setFormError((prev) => ({
+      ...prev,
+      email: !isEmail,
+    }));
+    const isNumbers =
+      /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/.test(
+        orderFormInfo.phone
+      );
+    const isErrorPhoneInput = !isNumbers;
+    setFormError((prev) => ({
+      ...prev,
+      phone: isErrorPhoneInput,
+    }));
+    if (formValidate) {
+      navigate("/shop/order");
+      handleRemoveAllOrder();
+    }
   };
 
   return (
@@ -229,7 +231,7 @@ export const VineOrderModal = () => {
                 <form
                   className="order__person__info"
                   onSubmit={(event) => {
-                    handleSubmit(formSubmit(event));
+                    formSubmit(event);
                   }}
                   noValidate
                 >

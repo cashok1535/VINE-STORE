@@ -207,8 +207,12 @@ export const BuyProvider = ({ children }) => {
       return prev.filter((item) => item.name !== name);
     });
   };
+
+  const handleRemoveAllOrder = () => {
+    setCountAllVines([]);
+  };
   const handleCloseModal = () => {
-    setIsOrderModal(false);   
+    setIsOrderModal(false);
   };
 
   const handleAddCountVine = (vine, value) => {
@@ -327,6 +331,7 @@ export const BuyProvider = ({ children }) => {
         handleLinkClose,
         handleOrderFromShop,
         allVine,
+        handleRemoveAllOrder
       }}
     >
       {children}
