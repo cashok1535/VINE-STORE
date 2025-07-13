@@ -254,6 +254,9 @@ a:hover {
   text-decoration: none;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .learn__button:hover {
@@ -2320,16 +2323,93 @@ a:hover {
   padding-left: 7px;
 }
 
-.is24Modal{
-  width: 670px;
-  height: 447.65px;
-  padding: 80px 0;
-  margin: 10% auto calc(10% + 80px);
+.is24Modal {
+  width: 770px;
+  height: 421.98px;
+  padding: 80px 40px;
   background-color: #261e1c;
+  position: fixed;
+  top: calc(50% - 235px);
+  left: calc(50% - 340.65px);
+  margin: 0 auto;
+  z-index: 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.is24Modal__parrent {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000d9;
+  z-index: 5;
 }
+
+.is24Modal__title {
+  font-family: "Prata", serif;
+  font-size: 48px;
+  margin-bottom: 25px;
+}
+
+.is24Modal__svg {
+  margin-bottom: 0;
+}
+
+.is24Modal__text {
+  text-align: center;
+  font-family: "Rubik_Regular", sans-serif;
+  font-size: 16px;
+  width: max-content;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.is24Modal__buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 50px;
+}
+
+.is24Modal__yes, .is24Modal__no {
+  font-size: 15px;
+  height: 47px;
+}
+
+.not__24 {
+  min-width: 100%;
+  min-height: 100%;
+  background: #261e1c;
+  padding: 325px 0 315px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.not__24__title {
+  color: #fff;
+  font-size: 84px;
+  line-height: 1.2;
+  font-family: "Prata", serif;
+  max-width: 1170px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.not__24__text {
+  color: #898082;
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: "Rubik_Regular", sans-serif;
+  margin-top: 20px;
+}
+
+
 
 @media (max-width: 992px) {
   .boutique__wines__flex__left {

@@ -1,3 +1,5 @@
+import { HashLink as Link } from "react-router-hash-link";
+
 export const MainTopStiky = () => {
   return (
     <>
@@ -63,10 +65,14 @@ export const MainTopStiky = () => {
           </div>
           <div className="header__flex__buttons">
             <button className="buy_button">
-              <a href="#shop__vines">Shop now</a>
+              <Link to="/#shop__vines" className="link">
+                Shop now
+              </Link>
             </button>
             <button className="learn__button">
-              <a href="#learn__more">Learn More</a>
+              <Link to="/#learn__more" className="link">
+                Learn More
+              </Link>
             </button>
           </div>
         </div>

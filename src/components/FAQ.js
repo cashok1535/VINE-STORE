@@ -4,25 +4,7 @@ export const FAQ = () => {
   const [activeQuestion, setActiveQuestion] = useState("");
 
   const handleActiveQuestion = (idQuestion) => {
-    switch (idQuestion) {
-      case 1:
-        setActiveQuestion((prev) => (prev === "one" ? "" : "one"));
-        break;
-      case 2:
-        setActiveQuestion((prev) => (prev === "two" ? "" : "two"));
-        break;
-      case 3:
-        setActiveQuestion((prev) => (prev === "three" ? "" : "three"));
-        break;
-      case 4:
-        setActiveQuestion((prev) => (prev === "four" ? "" : "four"));
-        break;
-      case 5:
-        setActiveQuestion((prev) => (prev === "five" ? "" : "five"));
-        break;
-      default:
-        break;
-    }
+    setActiveQuestion((prev) => (prev === idQuestion ? "" : idQuestion));
   };
   return (
     <div id="FAQ" className="faq">
@@ -80,7 +62,7 @@ export const FAQ = () => {
           <div className="questions__flex">
             <div
               className={`questions__flex__element ${
-                activeQuestion === "one" ? "active" : ""
+                activeQuestion === 1 ? "active" : ""
               }`}
             >
               <div>
@@ -95,7 +77,7 @@ export const FAQ = () => {
                   </div>
                   <div
                     className={`questions__flex__element__sign ${
-                      activeQuestion === "one" ? "active" : ""
+                      activeQuestion === 1 ? "active" : ""
                     }`}
                   ></div>
                 </button>
@@ -107,7 +89,7 @@ export const FAQ = () => {
             </div>
             <div
               className={`questions__flex__element ${
-                activeQuestion === "two" ? "active" : ""
+                activeQuestion === 2 ? "active" : ""
               }`}
             >
               <div>
@@ -122,7 +104,7 @@ export const FAQ = () => {
                   </div>
                   <div
                     className={`questions__flex__element__sign ${
-                      activeQuestion === "two" ? "active" : ""
+                      activeQuestion === 2 ? "active" : ""
                     }`}
                   ></div>
                 </button>
@@ -134,7 +116,7 @@ export const FAQ = () => {
             </div>
             <div
               className={`questions__flex__element ${
-                activeQuestion === "three" ? "active" : ""
+                activeQuestion === 3 ? "active" : ""
               }`}
             >
               <div>
@@ -149,7 +131,7 @@ export const FAQ = () => {
                   </div>
                   <div
                     className={`questions__flex__element__sign ${
-                      activeQuestion === "three" ? "active" : ""
+                      activeQuestion === 3 ? "active" : ""
                     }`}
                   ></div>
                 </button>
@@ -161,7 +143,7 @@ export const FAQ = () => {
             </div>
             <div
               className={`questions__flex__element ${
-                activeQuestion === "four" ? "active" : ""
+                activeQuestion === 4 ? "active" : ""
               }`}
             >
               <div>
@@ -176,7 +158,7 @@ export const FAQ = () => {
                   </div>
                   <div
                     className={`questions__flex__element__sign ${
-                      activeQuestion === "four" ? "active" : ""
+                      activeQuestion === 4 ? "active" : ""
                     }`}
                   ></div>
                 </button>
@@ -188,7 +170,7 @@ export const FAQ = () => {
             </div>
             <div
               className={`questions__flex__element ${
-                activeQuestion === "five" ? "active" : ""
+                activeQuestion === 5 ? "active" : ""
               }`}
             >
               <div>
@@ -203,7 +185,7 @@ export const FAQ = () => {
                   </div>
                   <div
                     className={`questions__flex__element__sign ${
-                      activeQuestion === "five" ? "active" : ""
+                      activeQuestion === 5 ? "active" : ""
                     }`}
                   ></div>
                 </button>

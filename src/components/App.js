@@ -10,19 +10,11 @@ import { BlogPage } from "./BlogPage";
 import { Shop } from "./Shop";
 import { VineOrderFinalPage } from "./VineOrderFinalPage";
 import { Not21 } from "./Not21";
-import { useEffect, useState } from "react";
 
 function App() {
-  const [is21Modal, setIs21Modal] = useState(true);
-  useEffect(() => {
-    setIs21Modal(true);
-    console.log(is21Modal);
-    
-  }, []);
   return (
     <div className="App">
       <BuyProvider>
-        <Header />
         <OrderButton />
         <VineOrderModal />
         <Routes>
@@ -30,21 +22,61 @@ function App() {
             path="/"
             element={
               <>
+                <Header />
                 <Main />
+                <Footer />
               </>
             }
           />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/shop/:vineName" element={<VineOrderPage />} />
-          <Route path="/shop/order" element={<VineOrderFinalPage />} />
-          <Route path="/blog/:blogTitle" element={<BlogPage />} />
+          <Route
+            path="/shop"
+            element={
+              <>
+                <Header />
+                <Shop />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/shop/:vineName"
+            element={
+              <>
+                <Header />
+                <VineOrderPage />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/shop/order"
+            element={
+              <>
+                <Header />
+                <VineOrderFinalPage />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/blog/:blogTitle"
+            element={
+              <>
+                <Header />
+                <BlogPage />
+                <Footer />
+              </>
+            }
+          />
           <Route path="/not-24" element={<Not21 />} />
         </Routes>
-        {is21Modal && <div className="is24Modal"></div>}
-        <Footer />
       </BuyProvider>
     </div>
   );
 }
 
 export default App;
+
+// модалка is21 в sessionStorage
+// изменять header в header useLocation
+// FooterSlider в отдельный компонент

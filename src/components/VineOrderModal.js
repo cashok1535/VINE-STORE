@@ -25,7 +25,6 @@ export const VineOrderModal = () => {
     email: null,
     phone: null,
   });
-
   const [orderFormInfo, setOrderFormInfo] = useState({
     name: "",
     email: "",
@@ -33,7 +32,6 @@ export const VineOrderModal = () => {
     comment: "",
   });
   const navigate = useNavigate();
-
   useEffect(() => {
     setOrderFormInfo({
       name: "",

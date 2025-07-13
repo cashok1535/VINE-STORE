@@ -1,5 +1,3 @@
-
-
 export const MainFlex = () => {
   return (
     <div className="main__flex">
@@ -17,9 +15,9 @@ export const MainFlex = () => {
           <a href="#learn__more" className="main__flex__element__button">
             Learn more
             <svg
-              height="32"
+              height="24"
+              width="24"
               viewBox="0 0 32 32"
-              width="32"
               xmlns="http://www.w3.org/2000/svg"
             >
               <g fill="none" fillRule="evenodd">
@@ -44,9 +42,9 @@ export const MainFlex = () => {
           <a href="#learn__more" className="main__flex__element__button">
             Learn more
             <svg
-              height="32"
+              height="24"
+              width="24"
               viewBox="0 0 32 32"
-              width="32"
               xmlns="http://www.w3.org/2000/svg"
             >
               <g fill="none" fillRule="evenodd">
@@ -76,9 +74,9 @@ export const MainFlex = () => {
           <a href="#learn__more" className="main__flex__element__button">
             Learn more
             <svg
-              height="32"
+              height="24"
               viewBox="0 0 32 32"
-              width="32"
+              width="24"
               xmlns="http://www.w3.org/2000/svg"
             >
               <g fill="none" fillRule="evenodd">

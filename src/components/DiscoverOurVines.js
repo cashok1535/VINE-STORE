@@ -60,7 +60,7 @@ export const DiscoverOurVines = () => {
           <a href="#shop__vines">Buy wines</a>
         </button>
         <button className="learn__button discover">
-          <a href="#123">Learn more</a>
+          <a href="#FAQ">Learn more</a>
         </button>
       </div>
     </div>

@@ -208,7 +208,7 @@ export const Footer = () => {
     });
   };
   return (
-    <footer className="footer">
+    <footer id="footer" className="footer">
       <div className="footer__flex">
         <div className="footer__flex__element">
           <div className="footer__flex__element__title">Contact Us</div>
