@@ -2320,6 +2320,17 @@ a:hover {
   padding-left: 7px;
 }
 
+.is24Modal{
+  width: 670px;
+  height: 447.65px;
+  padding: 80px 0;
+  margin: 10% auto calc(10% + 80px);
+  background-color: #261e1c;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 @media (max-width: 992px) {
   .boutique__wines__flex__left {
     display: none;

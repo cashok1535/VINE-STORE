@@ -9,9 +9,16 @@ import { VineOrderPage } from "./VineOrderPage";
 import { BlogPage } from "./BlogPage";
 import { Shop } from "./Shop";
 import { VineOrderFinalPage } from "./VineOrderFinalPage";
-import { Not24 } from "./Not21";
+import { Not21 } from "./Not21";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [is21Modal, setIs21Modal] = useState(true);
+  useEffect(() => {
+    setIs21Modal(true);
+    console.log(is21Modal);
+    
+  }, []);
   return (
     <div className="App">
       <BuyProvider>
@@ -31,8 +38,9 @@ function App() {
           <Route path="/shop/:vineName" element={<VineOrderPage />} />
           <Route path="/shop/order" element={<VineOrderFinalPage />} />
           <Route path="/blog/:blogTitle" element={<BlogPage />} />
-          <Route path="/not-24" element={<Not24 />} />
+          <Route path="/not-24" element={<Not21 />} />
         </Routes>
+        {is21Modal && <div className="is24Modal"></div>}
         <Footer />
       </BuyProvider>
     </div>
