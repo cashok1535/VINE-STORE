@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/VINE-STORE/static/css/main.16aec253.css",
-    "main.js": "/VINE-STORE/static/js/main.b7d65b93.js",
+    "main.js": "/VINE-STORE/static/js/main.b43ce96b.js",
     "static/js/453.ed3810f9.chunk.js": "/VINE-STORE/static/js/453.ed3810f9.chunk.js",
     "static/media/HeaderBackground.jpeg": "/VINE-STORE/static/media/HeaderBackground.4fb77f0e67c075d5e99a.jpeg",
     "static/media/HistoryVIne.png": "/VINE-STORE/static/media/HistoryVIne.8f7567ba7322b1b9fbd0.png",
@@ -93,11 +93,11 @@
     "static/media/lessSize.svg": "/VINE-STORE/static/media/lessSize.f62566900f31bcae4126.svg",
     "static/media/closeButton.svg": "/VINE-STORE/static/media/closeButton.36ea596ede2ad97e4344.svg",
     "main.16aec253.css.map": "/VINE-STORE/static/css/main.16aec253.css.map",
-    "main.b7d65b93.js.map": "/VINE-STORE/static/js/main.b7d65b93.js.map",
+    "main.b43ce96b.js.map": "/VINE-STORE/static/js/main.b43ce96b.js.map",
     "453.ed3810f9.chunk.js.map": "/VINE-STORE/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16aec253.css",
-    "static/js/main.b7d65b93.js"
+    "static/js/main.b43ce96b.js"
   ]
 }
