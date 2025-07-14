@@ -8,10 +8,13 @@ export const BlogPage = () => {
   const { blogTitle } = useParams();
   const { handleLinkOpen, handleCloseModal } = useContext(BuyContext);
 
+  
+  
   useEffect(() => {
     if (blogs) {
       const decodeTitle = decodeURIComponent(blogTitle);
       const currentBlog = blogs.find((item) => item.title === decodeTitle);
+      console.log(currentBlog);
       setBlog(currentBlog);
     }
   }, [blogTitle]);

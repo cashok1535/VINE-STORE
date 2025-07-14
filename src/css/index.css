@@ -80,7 +80,7 @@ a:hover {
   transition: all 0.2s ease-out;
 }
 
-.href__social:hover>svg {
+.href__social:hover > svg {
   fill: rgba(0, 0, 0, 0.685);
 }
 
@@ -265,7 +265,7 @@ a:hover {
   color: #000;
 }
 
-.learn__button:hover>a {
+.learn__button:hover > a {
   color: #000 !important;
 }
 
@@ -1600,7 +1600,8 @@ a:hover {
   text-align: left;
 }
 
-.questions__flex__element__button:hover>.questions__flex__element__sign::after.questions__flex__element__sign::before {
+.questions__flex__element__button:hover
+  > .questions__flex__element__sign::after.questions__flex__element__sign::before {
   background-color: #fff;
 }
 
@@ -1809,6 +1810,7 @@ a:hover {
 .parrent__footer__slider {
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 4;
   display: flex;
   width: 100%;
@@ -1981,8 +1983,8 @@ a:hover {
   z-index: -1;
 }
 
-.vine__order__page__flex__element__slider:hover>.right__button,
-.vine__order__page__flex__element__slider:hover>.left__button {
+.vine__order__page__flex__element__slider:hover > .right__button,
+.vine__order__page__flex__element__slider:hover > .left__button {
   transform: translate(0px);
   filter: blur(0);
 }
@@ -2282,7 +2284,6 @@ a:hover {
 }
 
 .vine__order__name {
-
   text-align: start;
   padding: 0 12px;
   box-sizing: border-box;
@@ -2375,7 +2376,8 @@ a:hover {
   margin-top: 50px;
 }
 
-.is24Modal__yes, .is24Modal__no {
+.is24Modal__yes,
+.is24Modal__no {
   font-size: 15px;
   height: 47px;
 }
@@ -2408,8 +2410,6 @@ a:hover {
   font-family: "Rubik_Regular", sans-serif;
   margin-top: 20px;
 }
-
-
 
 @media (max-width: 992px) {
   .boutique__wines__flex__left {

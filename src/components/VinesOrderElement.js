@@ -26,7 +26,7 @@ export const VinesOrderElement = ({
               <div className="vines__order__element__name">
                 <Link
                   onClick={handleCloseModal}
-                  to={`${vines.name}`}
+                  to={`/shop/${vines.name}`}
                   className="vines__order__element__link"
                 >
                   {vines.name}
