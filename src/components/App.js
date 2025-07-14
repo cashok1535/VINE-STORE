@@ -14,7 +14,7 @@ import { Not21 } from "./Not21";
 function App() {
   return (
     <div className="App">
-      <BuyProvider>
+      <BuyProvider basename={process.env.PUBLIC_URL}>
         <OrderButton />
         <VineOrderModal />
         <Routes>
@@ -76,7 +76,3 @@ function App() {
 }
 
 export default App;
-
-// модалка is21 в sessionStorage
-// изменять header в header useLocation
-// FooterSlider в отдельный компонент
