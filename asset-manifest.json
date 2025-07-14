@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/VINE-STORE/static/css/main.16aec253.css",
-    "main.js": "/VINE-STORE/static/js/main.6fbe90eb.js",
+    "main.js": "/VINE-STORE/static/js/main.b7d65b93.js",
     "static/js/453.ed3810f9.chunk.js": "/VINE-STORE/static/js/453.ed3810f9.chunk.js",
     "static/media/HeaderBackground.jpeg": "/VINE-STORE/static/media/HeaderBackground.4fb77f0e67c075d5e99a.jpeg",
     "static/media/HistoryVIne.png": "/VINE-STORE/static/media/HistoryVIne.8f7567ba7322b1b9fbd0.png",
@@ -81,23 +81,23 @@
     "static/media/green.jpeg": "/VINE-STORE/static/media/green.6973027cdd19717afd04.jpeg",
     "static/media/blue.jpeg": "/VINE-STORE/static/media/blue.01eaf5c0020a402046b4.jpeg",
     "static/media/redVine.jpeg": "/VINE-STORE/static/media/redVine.7489c26013105602a681.jpeg",
-    "static/media/logo (1).svg": "/VINE-STORE/static/media/logo (1).3a261cb1f5726e65870157aa98a8a68d.svg",
+    "static/media/logo (1).svg": "/VINE-STORE/static/media/logo (1).ea9d869fb760798aaa590904c6a2f129.svg",
     "static/media/black.jpeg": "/VINE-STORE/static/media/black.5b7e4a03334d75f20e4e.jpeg",
     "static/media/AnyConv.com__BebasNeue-Regular.woff": "/VINE-STORE/static/media/AnyConv.com__BebasNeue-Regular.dd844bf5672dbd910af3.woff",
-    "static/media/WineFInds.svg": "/VINE-STORE/static/media/WineFInds.ca0104da640adb46b274f15e40635641.svg",
-    "static/media/FIneWines.svg": "/VINE-STORE/static/media/FIneWines.990162e447e712b4218f94d91d32980e.svg",
-    "static/media/OrangeWineFund.svg": "/VINE-STORE/static/media/OrangeWineFund.d09cf48fb322c82b9eea8fa431035a2d.svg",
-    "static/media/TheWineCorporation.svg": "/VINE-STORE/static/media/TheWineCorporation.21a69aed61e9c0475bd506dbb72a9abd.svg",
+    "static/media/WineFInds.svg": "/VINE-STORE/static/media/WineFInds.7cf99ac7fa867b5ad4a529098095bc5f.svg",
+    "static/media/FIneWines.svg": "/VINE-STORE/static/media/FIneWines.25bcc9b74a6be2d5c5c119f780a31d48.svg",
+    "static/media/OrangeWineFund.svg": "/VINE-STORE/static/media/OrangeWineFund.25d0f96e9b5025cc4dea1d1214fd37f9.svg",
+    "static/media/TheWineCorporation.svg": "/VINE-STORE/static/media/TheWineCorporation.a5ac2d1df097d03722e88c8b179d2376.svg",
     "index.html": "/VINE-STORE/index.html",
     "static/media/moreSize.svg": "/VINE-STORE/static/media/moreSize.c3f68bc4fde5af420624.svg",
     "static/media/lessSize.svg": "/VINE-STORE/static/media/lessSize.f62566900f31bcae4126.svg",
     "static/media/closeButton.svg": "/VINE-STORE/static/media/closeButton.36ea596ede2ad97e4344.svg",
     "main.16aec253.css.map": "/VINE-STORE/static/css/main.16aec253.css.map",
-    "main.6fbe90eb.js.map": "/VINE-STORE/static/js/main.6fbe90eb.js.map",
+    "main.b7d65b93.js.map": "/VINE-STORE/static/js/main.b7d65b93.js.map",
     "453.ed3810f9.chunk.js.map": "/VINE-STORE/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.16aec253.css",
-    "static/js/main.6fbe90eb.js"
+    "static/js/main.b7d65b93.js"
   ]
 }
